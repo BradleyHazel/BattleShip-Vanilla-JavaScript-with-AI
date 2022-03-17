@@ -6,6 +6,10 @@ body{
   color: whitesmoke;
   text-align: center;
 }
+#toggle{
+  position: relative;
+  right: 600px
+}
   
   .shipBox{
     height: 40x;

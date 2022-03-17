@@ -11,10 +11,23 @@ let fourLongShip = document.getElementById("fourLongShip");
 let threeShipOne =  document.getElementById("threeShipOne");
 let threeShipTwo =  document.getElementById("threeShipTwo");
 
+let useTyperWriter = true
+
 let lastShipLocations=[];
 let round = 0;
 let shipcounter = 0
 
+
+function toggleTypeWriter(){
+    if(useTyperWriter){
+    document.getElementById("toggle").innerHTML = "Use TypeWritter Effect: Off"
+    useTyperWriter = false
+    }
+    else {
+        document.getElementById("toggle").innerHTML = "Use TypeWritter Effect: On"
+        useTyperWriter = true
+    }
+}
 
 
 document.getElementById('startbutton').style.visibility = 'hidden';
@@ -23,15 +36,20 @@ document.getElementById('startbutton').style.visibility = 'hidden';
 // fancy effect here
 
 var ivariable = 0;
-var animatedText = 'Place your ships by dragging and dropping them onto the battlefield.'; /* The text */
+var animatedText = 'Place your ships by dragging and dropping them onto the battlefield. Double click to rotate a ship.'; /* The text */
 var speed = 40; /* The speed/duration of the effect in milliseconds */
 
 function typeWriter() {
+    if(useTyperWriter == true){
   if (ivariable < animatedText.length) {
     document.getElementById("message").innerHTML += animatedText.charAt(ivariable);
     ivariable++;
     setTimeout(typeWriter, speed);
   }
+}
+    else{
+        document.getElementById("message").innerHTML = animatedText;
+    }
 }
 typeWriter()
 
@@ -4174,11 +4192,16 @@ var animatedText2 = 'The war has begun... the enemy ships have picked their posi
 var speed = 40; /* The speed/duration of the effect in milliseconds */
 
 function typeWriter2() {
+    if(useTyperWriter == true){
   if (ivariable < animatedText2.length) {
     document.getElementById("message").innerHTML += animatedText2.charAt(ivariable);
     ivariable++;
     setTimeout(typeWriter2, speed);
   }
+}
+    else{
+        document.getElementById("message").innerHTML = animatedText2;
+    }
 }
 typeWriter2()
 
@@ -4186,23 +4209,19 @@ setTimeout(resetP,4699);
 let  xvariable = 0;
 let animatedText3 = `Click on an enemy grid position to fire a missile!`
 function typeWriter3() {
-   
+    if(useTyperWriter == true){
     
     if (xvariable < animatedText3.length) {
       document.getElementById("message").innerHTML += animatedText3.charAt(xvariable);
       xvariable=xvariable+1
       setTimeout(typeWriter3, 30);
     }
+}
+    else{
+        document.getElementById("message").innerHTML = animatedText3;
+    }
   }
 setTimeout(typeWriter3,4700)
-
-
-
-
-
-
-
-
 
 
 function missMessage(){
@@ -4210,13 +4229,18 @@ function missMessage(){
 let  yvariable = 0;
 let animatedText4 = `You missed!`
 function typeWriter4() {
-   
+    if(useTyperWriter == true){
+
     
     if (yvariable < animatedText4.length) {
       document.getElementById("message").innerHTML += animatedText4.charAt(yvariable);
       yvariable=yvariable+1
       setTimeout(typeWriter4, 30);
     }
+}
+        else{
+            document.getElementById("message").innerHTML = animatedText4;
+        }
   }
 typeWriter4()
 
@@ -4228,12 +4252,18 @@ function enemyMissMessage(){
 let  dvariable = 0;
 let animatedText7 = `They missed!`
 function typeWriter4() {
-   
+    if(useTyperWriter == true){
+
     
     if (dvariable < animatedText7.length) {
       document.getElementById("message").innerHTML += animatedText7.charAt(dvariable);
       dvariable=dvariable+1
       setTimeout(typeWriter4, 30);
+    }
+}
+
+    else{
+        document.getElementById("message").innerHTML = animatedText7;
     }
   }
 typeWriter4()
@@ -4244,12 +4274,16 @@ function hitMessage(){
 let  zvariable = 0;
 let animatedText5 = `You got a hit! Attack again!`
 function typeWriter5() {
-   
+    if(useTyperWriter == true){
     
     if (zvariable < animatedText5.length) {
       document.getElementById("message").innerHTML += animatedText5.charAt(zvariable);
       zvariable=zvariable+1
       setTimeout(typeWriter5, 30);
+    }
+}
+    else{
+        document.getElementById("message").innerHTML = animatedText5;
     }
   }
 typeWriter5()
@@ -4262,12 +4296,16 @@ let  zvariablez = 0;
 let animatedText10 = `They got a hit!`
 function typeWriter10() {
    
-    
+    if(useTyperWriter == true){
+
     if (zvariablez < animatedText10.length) {
       document.getElementById("message").innerHTML += animatedText10.charAt(zvariablez);
       zvariablez=zvariablez+1
       setTimeout(typeWriter10, 30);
-    }
+    }}
+        else{
+            document.getElementById("message").innerHTML = animatedText10;
+        }
   }
   typeWriter10()
 
@@ -4278,12 +4316,16 @@ function enemyMessage(){
 let  wvariable = 0;
 let animatedText6 = `Their turn to attack!`
 function typeWriter6() {
-   
-    
+    if(useTyperWriter == true){
+
     if (wvariable < animatedText6.length) {
       document.getElementById("message").innerHTML += animatedText6.charAt(wvariable);
       wvariable=wvariable+1
       setTimeout(typeWriter6, 30);
+    }
+}
+    else{
+        document.getElementById("message").innerHTML = animatedText6;
     }
   }
 typeWriter6()
@@ -4296,12 +4338,16 @@ function yourTurnMessage(){
 let  avariable = 0;
 let animatedText9 = `Your turn!`
 function typeWriter9() {
-   
-    
+    if(useTyperWriter == true){
+
     if (avariable < animatedText9.length) {
       document.getElementById("message").innerHTML += animatedText9.charAt(avariable);
       avariable=avariable+1
       setTimeout(typeWriter9, 30);
+    }
+}
+    else{
+        document.getElementById("message").innerHTML = animatedText9;
     }
   }
   typeWriter9()

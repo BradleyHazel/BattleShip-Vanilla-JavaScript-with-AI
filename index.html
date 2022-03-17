@@ -13,6 +13,7 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
+        <button id ="toggle"onclick="toggleTypeWriter()">Use TypeWritter Effect: On</button>
         <h1>SpaceShip Battle</h1>
         <div id="titles"><h2>&nbsp;&nbsp;&nbsp;Player Ships
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -285,7 +286,9 @@
             <div id="theirJ9" class="shipBox" shiphere="false"></div>
             <div id="theirJ10" class="shipBox" shiphere="false"></div>
         </div>
+        
         <div id="startbutton"><button onclick="startGame()">Click here to start the game!</button></div>
+        
         <div id="messageContainer"><p id="message"></p></div>
         <div id="shipContainer">
             <img src="antmaker.png" id ="smallShip" draggable="true" ondragstart="drag(event)" ondblclick="rotateSmallestShip()" shipOrientation = "vertical">
@@ -295,6 +298,7 @@
             <img src="Spaceship_tut_thin.png" id ="fourLongShip" draggable="true" ondragstart="drag(event)" ondblclick="rotatefourLongShip()" shipOrientation = "vertical">
             <img src="space_carrier.png" id ="biggestShip" draggable="true" ondragstart="drag(event)" ondblclick="rotateBigShip()" shipOrientation = "vertical">
         </div>
+        
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
