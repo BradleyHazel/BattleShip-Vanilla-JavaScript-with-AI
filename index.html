@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <h1>SpaceShip Battle</h1>
+        <div id="titles"><h2>&nbsp;&nbsp;&nbsp;Player Ships
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            Enemy Ships</h2></div>
+        <div id="gridContainer">
+            <div id="letterBlank" class="infoBox"></div>
+            <div id="our#1" class="infoBox">1</div>
+            <div id="our#2" class="infoBox">2</div>
+            <div id="our#3" class="infoBox">3</div>
+            <div id="our#4" class="infoBox">4</div>
+            <div id="our#5" class="infoBox">5</div>
+            <div id="our#6" class="infoBox">6</div>
+            <div id="our#7" class="infoBox">7</div>
+            <div id="our#8" class="infoBox">8</div>
+            <div id="our#9" class="infoBox">9</div>
+            <div id="our#10" class="infoBox">10</div>
+            <div id="blankSpace" class="infoBox"></div>
+            <div id="our#blank" class="infoBox"></div>
+            <div id="their#1" class="infoBox">1</div>
+            <div id="their#2" class="infoBox">2</div>
+            <div id="theri#3" class="infoBox">3</div>
+            <div id="their#4" class="infoBox">4</div>
+            <div id="their#5" class="infoBox">5</div>
+            <div id="their#6" class="infoBox">6</div>
+            <div id="their#7" class="infoBox">7</div>
+            <div id="their#8" class="infoBox">8</div>
+            <div id="their#9" class="infoBox">9</div>
+            <div id="their#10" class="infoBox">10</div>
+           
+
+            <div id="letterBlank" class="infoBox">A</div>
+            <div id="A1" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="A2" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="A3" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="A4" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="A5" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="A6" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="A7" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="A8" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="A9" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="A10" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="blankSpace" class="infoBox"></div>
+            <div id="letterBlank" class="infoBox">A</div>
+            <div id="theirA1" class="shipBox" shiphere="false"></div>
+            <div id="theirA2" class="shipBox" shiphere="false"></div>
+            <div id="theirA3" class="shipBox" shiphere="false"></div>
+            <div id="theirA4" class="shipBox" shiphere="false"></div>
+            <div id="theirA5" class="shipBox" shiphere="false"></div>
+            <div id="theirA6" class="shipBox" shiphere="false"></div>
+            <div id="theirA7" class="shipBox" shiphere="false"></div>
+            <div id="theirA8" class="shipBox" shiphere="false"></div>
+            <div id="theirA9" class="shipBox" shiphere="false"></div>
+            <div id="theirA10" class="shipBox" shiphere="false"></div>
+            
+
+            <div id="letterBlank" class="infoBox">B</div>
+            <div id="B1" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="B2" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="B3" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="B4" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="B5" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="B6" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="B7" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="B8" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="B9" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="B10" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="blankSpace" class="infoBox"></div>
+            <div id="letterBlank" class="infoBox">B</div>
+            <div id="theirB1" class="shipBox" shiphere="false"></div>
+            <div id="theirB2" class="shipBox" shiphere="false"></div>
+            <div id="theirB3" class="shipBox" shiphere="false"></div>
+            <div id="theirB4" class="shipBox" shiphere="false"></div>
+            <div id="theirB5" class="shipBox" shiphere="false"></div>
+            <div id="theirB6" class="shipBox" shiphere="false"></div>
+            <div id="theirB7" class="shipBox" shiphere="false"></div>
+            <div id="theirB8" class="shipBox" shiphere="false"></div>
+            <div id="theirB9" class="shipBox" shiphere="false"></div>
+            <div id="theirB10" class="shipBox" shiphere="false"></div>
+
+            <div id="letterBlank" class="infoBox">C</div>
+            <div id="C1" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="C2" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="C3" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="C4" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="C5" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="C6" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="C7" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="C8" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="C9" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="C10" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="blankSpace" class="infoBox"></div>
+            <div id="letterBlank" class="infoBox">C</div>
+            <div id="theirC1" class="shipBox" shiphere="false"></div>
+            <div id="theirC2" class="shipBox" shiphere="false"></div>
+            <div id="theirC3" class="shipBox" shiphere="false"></div>
+            <div id="theirC4" class="shipBox" shiphere="false"></div>
+            <div id="theirC5" class="shipBox" shiphere="false"></div>
+            <div id="theirC6" class="shipBox" shiphere="false"></div>
+            <div id="theirC7" class="shipBox" shiphere="false"></div>
+            <div id="theirC8" class="shipBox" shiphere="false"></div>
+            <div id="theirC9" class="shipBox" shiphere="false"></div>
+            <div id="theirC10" class="shipBox" shiphere="false"></div>
+
+            <div id="letterBlank" class="infoBox">D</div>
+            <div id="D1" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="D2" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="D3" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="D4" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="D5" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="D6" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="D7" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="D8" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="D9" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="D10" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="blankSpace" class="infoBox"></div>
+            <div id="letterBlank" class="infoBox">D</div>
+            <div id="theirD1" class="shipBox" shiphere="false"></div>
+            <div id="theirD2" class="shipBox" shiphere="false"></div>
+            <div id="theirD3" class="shipBox" shiphere="false"></div>
+            <div id="theirD4" class="shipBox" shiphere="false"></div>
+            <div id="theirD5" class="shipBox" shiphere="false"></div>
+            <div id="theirD6" class="shipBox" shiphere="false"></div>
+            <div id="theirD7" class="shipBox" shiphere="false"></div>
+            <div id="theirD8" class="shipBox" shiphere="false"></div>
+            <div id="theirD9" class="shipBox" shiphere="false"></div>
+            <div id="theirD10" class="shipBox" shiphere="false"></div>
+
+            <div id="letterBlank" class="infoBox">E</div>
+            <div id="E1" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="E2" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="E3" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="E4" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="E5" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="E6" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="E7" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="E8" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="E9" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="E10" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="blankSpace" class="infoBox"></div>
+            <div id="letterBlank" class="infoBox">E</div>
+            <div id="theirE1" class="shipBox" shiphere="false"></div>
+            <div id="theirE2" class="shipBox" shiphere="false"></div>
+            <div id="theirE3" class="shipBox" shiphere="false"></div>
+            <div id="theirE4" class="shipBox" shiphere="false"></div>
+            <div id="theirE5" class="shipBox" shiphere="false"></div>
+            <div id="theirE6" class="shipBox" shiphere="false"></div>
+            <div id="theirE7" class="shipBox" shiphere="false"></div>
+            <div id="theirE8" class="shipBox" shiphere="false"></div>
+            <div id="theirE9" class="shipBox" shiphere="false"></div>
+            <div id="theirE10" class="shipBox" shiphere="false"></div>
+
+            <div id="letterBlank" class="infoBox">F</div>
+            <div id="F1" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="F2" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="F3" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="F4" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="F5" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="F6" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="F7" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="F8" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="F9" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="F10" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="blankSpace" class="infoBox"></div>
+            <div id="letterBlank" class="infoBox">F</div>
+            <div id="theirF1" class="shipBox" shiphere="false"></div>
+            <div id="theirF2" class="shipBox" shiphere="false"></div>
+            <div id="theirF3" class="shipBox" shiphere="false"></div>
+            <div id="theirF4" class="shipBox" shiphere="false"></div>
+            <div id="theirF5" class="shipBox" shiphere="false"></div>
+            <div id="theirF6" class="shipBox" shiphere="false"></div>
+            <div id="theirF7" class="shipBox" shiphere="false"></div>
+            <div id="theirF8" class="shipBox" shiphere="false"></div>
+            <div id="theirF9" class="shipBox" shiphere="false"></div>
+            <div id="theirF10" class="shipBox" shiphere="false"></div>
+
+            <div id="letterBlank" class="infoBox">G</div>
+            <div id="G1" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="G2" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="G3" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="G4" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="G5" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="G6" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="G7" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="G8" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="G9" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="G10" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="blankSpace" class="infoBox"></div>
+            <div id="letterBlank" class="infoBox">G</div>
+            <div id="theirG1" class="shipBox" shiphere="false"></div>
+            <div id="theirG2" class="shipBox" shiphere="false"></div>
+            <div id="theirG3" class="shipBox" shiphere="false"></div>
+            <div id="theirG4" class="shipBox" shiphere="false"></div>
+            <div id="theirG5" class="shipBox" shiphere="false"></div>
+            <div id="theirG6" class="shipBox" shiphere="false"></div>
+            <div id="theirG7" class="shipBox" shiphere="false"></div>
+            <div id="theirG8" class="shipBox" shiphere="false"></div>
+            <div id="theirG9" class="shipBox" shiphere="false"></div>
+            <div id="theirG10" class="shipBox" shiphere="false"></div>
+
+            <div id="letterBlank" class="infoBox">H</div>
+            <div id="H1" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="H2" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="H3" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="H4" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="H5" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="H6" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="H7" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="H8" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="H9" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="H10" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="blankSpace" class="infoBox"></div>
+            <div id="letterBlank" class="infoBox">H</div>
+            <div id="theirH1" class="shipBox" shiphere="false"></div>
+            <div id="theirH2" class="shipBox" shiphere="false"></div>
+            <div id="theirH3" class="shipBox" shiphere="false"></div>
+            <div id="theirH4" class="shipBox" shiphere="false"></div>
+            <div id="theirH5" class="shipBox" shiphere="false"></div>
+            <div id="theirH6" class="shipBox" shiphere="false"></div>
+            <div id="theirH7" class="shipBox" shiphere="false"></div>
+            <div id="theirH8" class="shipBox" shiphere="false"></div>
+            <div id="theirH9" class="shipBox" shiphere="false"></div>
+            <div id="theirH10" class="shipBox" shiphere="false"></div>
+
+            <div id="letterBlank" class="infoBox">I</div>
+            <div id="I1" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="I2" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="I3" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="I4" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="I5" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="I6" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="I7" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="I8" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="I9" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="I10" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="blankSpace" class="infoBox"></div>
+            <div id="letterBlank" class="infoBox">I</div>
+            <div id="theirI1" class="shipBox" shiphere="false"></div>
+            <div id="theirI2" class="shipBox" shiphere="false"></div>
+            <div id="theirI3" class="shipBox" shiphere="false"></div>
+            <div id="theirI4" class="shipBox" shiphere="false"></div>
+            <div id="theirI5" class="shipBox" shiphere="false"></div>
+            <div id="theirI6" class="shipBox" shiphere="false"></div>
+            <div id="theirI7" class="shipBox" shiphere="false"></div>
+            <div id="theirI8" class="shipBox" shiphere="false"></div>
+            <div id="theirI9" class="shipBox" shiphere="false"></div>
+            <div id="theirI10" class="shipBox" shiphere="false"></div>
+
+            <div id="letterBlank" class="infoBox">J</div>
+            <div id="J1" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="J2" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="J3" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="J4" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="J5" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="J6" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="J7" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="J8" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="J9" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="J10" class="shipBox" ondrop="drop(event)" ondragover="allowDrop(event)" shiphere="false"></div>
+            <div id="blankSpace" class="infoBox"></div>
+            <div id="letterBlank" class="infoBox">J</div>
+            <div id="theirJ1" class="shipBox" shiphere="false"></div>
+            <div id="theirJ2" class="shipBox" shiphere="false"></div>
+            <div id="theirJ3" class="shipBox" shiphere="false"></div>
+            <div id="theirJ4" class="shipBox" shiphere="false"></div>
+            <div id="theirJ5" class="shipBox" shiphere="false"></div>
+            <div id="theirJ6" class="shipBox" shiphere="false"></div>
+            <div id="theirJ7" class="shipBox" shiphere="false"></div>
+            <div id="theirJ8" class="shipBox" shiphere="false"></div>
+            <div id="theirJ9" class="shipBox" shiphere="false"></div>
+            <div id="theirJ10" class="shipBox" shiphere="false"></div>
+        </div>
+        <div id="startbutton"><button onclick="startGame()">Click here to start the game!</button></div>
+        <div id="messageContainer"><p id="message"></p></div>
+        <div id="shipContainer">
+            <img src="antmaker.png" id ="smallShip" draggable="true" ondragstart="drag(event)" ondblclick="rotateSmallestShip()" shipOrientation = "vertical">
+            <img src="shiper_mix_02.png" id ="threeShipOne" draggable="true" ondragstart="drag(event)" ondblclick="rotatethreeShipOne()" shipOrientation = "vertical">
+
+            <img src="ship9.png" id ="threeShipTwo" draggable="true" ondragstart="drag(event)" ondblclick="rotatethreeShipTwo()" shipOrientation = "vertical">
+            <img src="Spaceship_tut_thin.png" id ="fourLongShip" draggable="true" ondragstart="drag(event)" ondblclick="rotatefourLongShip()" shipOrientation = "vertical">
+            <img src="space_carrier.png" id ="biggestShip" draggable="true" ondragstart="drag(event)" ondblclick="rotateBigShip()" shipOrientation = "vertical">
+        </div>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        
+        <script src="script.js" async defer></script>
+    </body>
+</html>
