@@ -6,9 +6,19 @@ body{
   color: whitesmoke;
   text-align: center;
 }
-#toggle{
-  position: relative;
-  right: 600px
+#toggle1{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  
+}
+.topbutton{
+  color: white;
+  padding: 10px 15px;
+  display:inline-block;
+  font-size: 13px;
+  border: none;
+  background-color: #1a51b6; /* Green */
 }
   
   .shipBox{

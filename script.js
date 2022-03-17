@@ -18,13 +18,14 @@ let round = 0;
 let shipcounter = 0
 
 
+
 function toggleTypeWriter(){
     if(useTyperWriter){
-    document.getElementById("toggle").innerHTML = "Use TypeWritter Effect: Off"
+    document.getElementById("toggle").innerHTML = "TypeWritter Effect: Off"
     useTyperWriter = false
     }
     else {
-        document.getElementById("toggle").innerHTML = "Use TypeWritter Effect: On"
+        document.getElementById("toggle").innerHTML = "TypeWritter Effect: On"
         useTyperWriter = true
     }
 }
@@ -4509,7 +4510,7 @@ function enemyTurn(){
     if(enemyChoice.attributes[4].value == `false`){
         enemyChoice.style.opacity = 0;
         enemyMissMessage();
-        setTimeout(yourTurnMessage,1200)
+        setTimeout(yourTurnMessage,800)
         
     }
     else if(enemyChoice.attributes[4].value == `true`){
@@ -4522,7 +4523,7 @@ function enemyTurn(){
         enemyChoice.setAttribute(`shiptype`, `hit`)
         enemyHitMessage()
         checkFriendlyShips()
-        setTimeout(enemyTurn,1200)
+        setTimeout(enemyTurn,800)
     
     //checkEnemyShips()}
 }
@@ -4540,8 +4541,13 @@ theirA1.addEventListener("click",ev=>{
     if(theirA1.attributes[2].value == `false`){
         theirA1.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirA1.attributes[2].value == `true`){
         hitMessage()
@@ -4555,8 +4561,13 @@ theirA2.addEventListener("click",ev=>{
     if(theirA2.attributes[2].value == `false`){
         theirA2.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirA2.attributes[2].value == `true`){
         hitMessage()
@@ -4575,8 +4586,13 @@ theirA3.addEventListener("click",ev=>{
     if(theirA3.attributes[2].value == `false`){
         theirA3.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirA3.attributes[2].value == `true`){
         hitMessage()
@@ -4590,8 +4606,13 @@ theirA4.addEventListener("click",ev=>{
     if(theirA4.attributes[2].value == `false`){
         theirA4.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirA4.attributes[2].value == `true`){
         hitMessage()
@@ -4605,8 +4626,13 @@ theirA5.addEventListener("click",ev=>{
     if(theirA5.attributes[2].value == `false`){
         theirA5.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirA5.attributes[2].value == `true`){
         hitMessage()
@@ -4620,8 +4646,13 @@ theirA6.addEventListener("click",ev=>{
     if(theirA6.attributes[2].value == `false`){
         theirA6.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirA6.attributes[2].value == `true`){
         hitMessage()
@@ -4635,8 +4666,13 @@ theirA7.addEventListener("click",ev=>{
     if(theirA7.attributes[2].value == `false`){
         theirA7.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirA7.attributes[2].value == `true`){
         hitMessage()
@@ -4650,8 +4686,13 @@ theirA8.addEventListener("click",ev=>{
     if(theirA8.attributes[2].value == `false`){
         theirA8.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirA8.attributes[2].value == `true`){
         hitMessage()
@@ -4665,8 +4706,13 @@ theirA9.addEventListener("click",ev=>{
     if(theirA9.attributes[2].value == `false`){
         theirA9.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirA9.attributes[2].value == `true`){
         hitMessage()
@@ -4680,8 +4726,13 @@ theirA10.addEventListener("click",ev=>{
     if(theirA10.attributes[2].value == `false`){
         theirA10.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirA10.attributes[2].value == `true`){
         hitMessage()
@@ -4696,8 +4747,13 @@ theirB1.addEventListener("click",ev=>{
     if(theirB1.attributes[2].value == `false`){
         theirB1.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirB1.attributes[2].value == `true`){
         hitMessage()
@@ -4711,8 +4767,13 @@ theirB2.addEventListener("click",ev=>{
     if(theirB2.attributes[2].value == `false`){
         theirB2.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirB2.attributes[2].value == `true`){
         hitMessage()
@@ -4726,8 +4787,13 @@ theirB3.addEventListener("click",ev=>{
     if(theirB3.attributes[2].value == `false`){
         theirB3.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirB3.attributes[2].value == `true`){
         hitMessage()
@@ -4741,8 +4807,13 @@ theirB4.addEventListener("click",ev=>{
     if(theirB4.attributes[2].value == `false`){
         theirB4.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirB4.attributes[2].value == `true`){
         hitMessage()
@@ -4756,8 +4827,13 @@ theirB5.addEventListener("click",ev=>{
     if(theirB5.attributes[2].value == `false`){
         theirB5.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirB5.attributes[2].value == `true`){
         hitMessage()
@@ -4771,8 +4847,13 @@ theirB6.addEventListener("click",ev=>{
     if(theirB6.attributes[2].value == `false`){
         theirB6.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirB6.attributes[2].value == `true`){
         hitMessage()
@@ -4786,8 +4867,13 @@ theirB7.addEventListener("click",ev=>{
     if(theirB7.attributes[2].value == `false`){
         theirB7.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirB7.attributes[2].value == `true`){
         hitMessage()
@@ -4801,8 +4887,13 @@ theirB8.addEventListener("click",ev=>{
     if(theirB8.attributes[2].value == `false`){
         theirB8.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirB8.attributes[2].value == `true`){
         hitMessage()
@@ -4816,8 +4907,13 @@ theirB9.addEventListener("click",ev=>{
     if(theirB9.attributes[2].value == `false`){
         theirB9.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirB9.attributes[2].value == `true`){
         hitMessage()
@@ -4831,8 +4927,13 @@ theirB10.addEventListener("click",ev=>{
     if(theirB10.attributes[2].value == `false`){
         theirB10.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirB10.attributes[2].value == `true`){
         hitMessage()
@@ -4848,8 +4949,13 @@ theirC1.addEventListener("click",ev=>{
     if(theirC1.attributes[2].value == `false`){
         theirC1.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirC1.attributes[2].value == `true`){
         hitMessage()
@@ -4863,8 +4969,13 @@ theirC2.addEventListener("click",ev=>{
     if(theirC2.attributes[2].value == `false`){
         theirC2.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirC2.attributes[2].value == `true`){
         hitMessage()
@@ -4878,8 +4989,13 @@ theirC3.addEventListener("click",ev=>{
     if(theirC3.attributes[2].value == `false`){
         theirC3.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirC3.attributes[2].value == `true`){
         hitMessage()
@@ -4893,8 +5009,13 @@ theirC4.addEventListener("click",ev=>{
     if(theirC4.attributes[2].value == `false`){
         theirC4.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirC4.attributes[2].value == `true`){
         hitMessage()
@@ -4908,8 +5029,13 @@ theirC5.addEventListener("click",ev=>{
     if(theirC5.attributes[2].value == `false`){
         theirC5.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirC5.attributes[2].value == `true`){
         hitMessage()
@@ -4923,8 +5049,13 @@ theirC6.addEventListener("click",ev=>{
     if(theirC6.attributes[2].value == `false`){
         theirC6.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirC6.attributes[2].value == `true`){
         hitMessage()
@@ -4938,8 +5069,13 @@ theirC7.addEventListener("click",ev=>{
     if(theirC7.attributes[2].value == `false`){
         theirC7.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirC7.attributes[2].value == `true`){
         hitMessage()
@@ -4953,8 +5089,13 @@ theirC8.addEventListener("click",ev=>{
     if(theirC8.attributes[2].value == `false`){
         theirC8.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirC8.attributes[2].value == `true`){
         hitMessage()
@@ -4968,8 +5109,13 @@ theirC9.addEventListener("click",ev=>{
     if(theirC9.attributes[2].value == `false`){
         theirC9.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirC9.attributes[2].value == `true`){
         hitMessage()
@@ -4983,8 +5129,13 @@ theirC10.addEventListener("click",ev=>{
     if(theirC10.attributes[2].value == `false`){
         theirC10.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirC10.attributes[2].value == `true`){
         hitMessage()
@@ -4999,8 +5150,13 @@ theirD1.addEventListener("click",ev=>{
     if(theirD1.attributes[2].value == `false`){
         theirD1.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirD1.attributes[2].value == `true`){
         hitMessage()
@@ -5014,8 +5170,13 @@ theirD2.addEventListener("click",ev=>{
     if(theirD2.attributes[2].value == `false`){
         theirD2.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirD2.attributes[2].value == `true`){
         hitMessage()
@@ -5029,8 +5190,13 @@ theirD3.addEventListener("click",ev=>{
     if(theirD3.attributes[2].value == `false`){
         theirD3.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirD3.attributes[2].value == `true`){
         hitMessage()
@@ -5044,8 +5210,13 @@ theirD4.addEventListener("click",ev=>{
     if(theirD4.attributes[2].value == `false`){
         theirD4.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirD4.attributes[2].value == `true`){
         hitMessage()
@@ -5059,8 +5230,13 @@ theirD5.addEventListener("click",ev=>{
     if(theirD5.attributes[2].value == `false`){
         theirD5.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirD5.attributes[2].value == `true`){
         hitMessage()
@@ -5074,8 +5250,13 @@ theirD6.addEventListener("click",ev=>{
     if(theirD6.attributes[2].value == `false`){
         theirD6.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirD6.attributes[2].value == `true`){
         hitMessage()
@@ -5089,8 +5270,13 @@ theirD7.addEventListener("click",ev=>{
     if(theirD7.attributes[2].value == `false`){
         theirD7.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirD7.attributes[2].value == `true`){
         hitMessage()
@@ -5104,8 +5290,13 @@ theirD8.addEventListener("click",ev=>{
     if(theirD8.attributes[2].value == `false`){
         theirD8.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirD8.attributes[2].value == `true`){
         hitMessage()
@@ -5119,8 +5310,13 @@ theirD9.addEventListener("click",ev=>{
     if(theirD9.attributes[2].value == `false`){
         theirD9.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirD9.attributes[2].value == `true`){
         hitMessage()
@@ -5134,8 +5330,13 @@ theirD10.addEventListener("click",ev=>{
     if(theirD10.attributes[2].value == `false`){
         theirD10.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirD10.attributes[2].value == `true`){
         hitMessage()
@@ -5150,8 +5351,13 @@ theirE1.addEventListener("click",ev=>{
     if(theirE1.attributes[2].value == `false`){
         theirE1.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirE1.attributes[2].value == `true`){
         hitMessage()
@@ -5165,8 +5371,13 @@ theirE2.addEventListener("click",ev=>{
     if(theirE2.attributes[2].value == `false`){
         theirE2.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirE2.attributes[2].value == `true`){
         hitMessage()
@@ -5180,8 +5391,13 @@ theirE3.addEventListener("click",ev=>{
     if(theirE3.attributes[2].value == `false`){
         theirE3.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirE3.attributes[2].value == `true`){
         hitMessage()
@@ -5195,8 +5411,13 @@ theirE4.addEventListener("click",ev=>{
     if(theirE4.attributes[2].value == `false`){
         theirE4.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirE4.attributes[2].value == `true`){
         hitMessage()
@@ -5210,8 +5431,13 @@ theirE5.addEventListener("click",ev=>{
     if(theirE5.attributes[2].value == `false`){
         theirE5.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirE5.attributes[2].value == `true`){
         hitMessage()
@@ -5225,8 +5451,13 @@ theirE6.addEventListener("click",ev=>{
     if(theirE6.attributes[2].value == `false`){
         theirE6.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirE6.attributes[2].value == `true`){
         hitMessage()
@@ -5240,8 +5471,13 @@ theirE7.addEventListener("click",ev=>{
     if(theirE7.attributes[2].value == `false`){
         theirE7.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirE7.attributes[2].value == `true`){
         hitMessage()
@@ -5255,8 +5491,13 @@ theirE8.addEventListener("click",ev=>{
     if(theirE8.attributes[2].value == `false`){
         theirE8.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirE8.attributes[2].value == `true`){
         hitMessage()
@@ -5270,8 +5511,13 @@ theirE9.addEventListener("click",ev=>{
     if(theirE9.attributes[2].value == `false`){
         theirE9.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirE9.attributes[2].value == `true`){
         hitMessage()
@@ -5285,8 +5531,13 @@ theirE10.addEventListener("click",ev=>{
     if(theirE10.attributes[2].value == `false`){
         theirE10.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirE10.attributes[2].value == `true`){
         hitMessage()
@@ -5302,8 +5553,13 @@ theirF1.addEventListener("click",ev=>{
     if(theirF1.attributes[2].value == `false`){
         theirF1.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirF1.attributes[2].value == `true`){
         hitMessage()
@@ -5317,8 +5573,13 @@ theirF2.addEventListener("click",ev=>{
     if(theirF2.attributes[2].value == `false`){
         theirF2.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirF2.attributes[2].value == `true`){
         hitMessage()
@@ -5332,8 +5593,13 @@ theirF3.addEventListener("click",ev=>{
     if(theirF3.attributes[2].value == `false`){
         theirF3.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirF3.attributes[2].value == `true`){
         hitMessage()
@@ -5347,8 +5613,13 @@ theirF4.addEventListener("click",ev=>{
     if(theirF4.attributes[2].value == `false`){
         theirF4.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirF4.attributes[2].value == `true`){
         hitMessage()
@@ -5362,8 +5633,13 @@ theirF5.addEventListener("click",ev=>{
     if(theirF5.attributes[2].value == `false`){
         theirF5.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirF5.attributes[2].value == `true`){
         hitMessage()
@@ -5377,8 +5653,13 @@ theirF6.addEventListener("click",ev=>{
     if(theirF6.attributes[2].value == `false`){
         theirF6.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirF6.attributes[2].value == `true`){
         hitMessage()
@@ -5392,8 +5673,13 @@ theirF7.addEventListener("click",ev=>{
     if(theirF7.attributes[2].value == `false`){
         theirF7.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirF7.attributes[2].value == `true`){
         hitMessage()
@@ -5407,8 +5693,13 @@ theirF8.addEventListener("click",ev=>{
     if(theirF8.attributes[2].value == `false`){
         theirF8.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirF8.attributes[2].value == `true`){
         hitMessage()
@@ -5422,8 +5713,13 @@ theirF9.addEventListener("click",ev=>{
     if(theirF9.attributes[2].value == `false`){
         theirF9.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirF9.attributes[2].value == `true`){
         hitMessage()
@@ -5437,8 +5733,13 @@ theirF10.addEventListener("click",ev=>{
     if(theirF10.attributes[2].value == `false`){
         theirF10.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirF10.attributes[2].value == `true`){
         hitMessage()
@@ -5453,8 +5754,13 @@ theirG1.addEventListener("click",ev=>{
     if(theirG1.attributes[2].value == `false`){
         theirG1.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirG1.attributes[2].value == `true`){
         hitMessage()
@@ -5468,8 +5774,13 @@ theirG2.addEventListener("click",ev=>{
     if(theirG2.attributes[2].value == `false`){
         theirG2.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirG2.attributes[2].value == `true`){
         hitMessage()
@@ -5483,8 +5794,13 @@ theirG3.addEventListener("click",ev=>{
     if(theirG3.attributes[2].value == `false`){
         theirG3.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirG3.attributes[2].value == `true`){
         hitMessage()
@@ -5498,8 +5814,13 @@ theirG4.addEventListener("click",ev=>{
     if(theirG4.attributes[2].value == `false`){
         theirG4.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirG4.attributes[2].value == `true`){
         hitMessage()
@@ -5513,8 +5834,13 @@ theirG5.addEventListener("click",ev=>{
     if(theirG5.attributes[2].value == `false`){
         theirG5.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirG5.attributes[2].value == `true`){
         hitMessage()
@@ -5528,8 +5854,13 @@ theirG6.addEventListener("click",ev=>{
     if(theirG6.attributes[2].value == `false`){
         theirG6.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirG6.attributes[2].value == `true`){
         hitMessage()
@@ -5543,8 +5874,13 @@ theirG7.addEventListener("click",ev=>{
     if(theirG7.attributes[2].value == `false`){
         theirG7.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirG7.attributes[2].value == `true`){
         hitMessage()
@@ -5558,8 +5894,13 @@ theirG8.addEventListener("click",ev=>{
     if(theirG8.attributes[2].value == `false`){
         theirG8.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirG8.attributes[2].value == `true`){
         hitMessage()
@@ -5573,8 +5914,13 @@ theirG9.addEventListener("click",ev=>{
     if(theirG9.attributes[2].value == `false`){
         theirG9.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirG9.attributes[2].value == `true`){
         hitMessage()
@@ -5588,8 +5934,13 @@ theirG10.addEventListener("click",ev=>{
     if(theirG10.attributes[2].value == `false`){
         theirG10.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirG10.attributes[2].value == `true`){
         hitMessage()
@@ -5605,8 +5956,13 @@ theirH1.addEventListener("click",ev=>{
     if(theirH1.attributes[2].value == `false`){
         theirH1.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirH1.attributes[2].value == `true`){
         hitMessage()
@@ -5620,8 +5976,13 @@ theirH2.addEventListener("click",ev=>{
     if(theirH2.attributes[2].value == `false`){
         theirH2.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirH2.attributes[2].value == `true`){
         hitMessage()
@@ -5635,8 +5996,13 @@ theirH3.addEventListener("click",ev=>{
     if(theirH3.attributes[2].value == `false`){
         theirH3.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirH3.attributes[2].value == `true`){
         hitMessage()
@@ -5650,8 +6016,13 @@ theirH4.addEventListener("click",ev=>{
     if(theirH4.attributes[2].value == `false`){
         theirH4.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirH4.attributes[2].value == `true`){
         hitMessage()
@@ -5665,8 +6036,13 @@ theirH5.addEventListener("click",ev=>{
     if(theirH5.attributes[2].value == `false`){
         theirH5.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirH5.attributes[2].value == `true`){
         hitMessage()
@@ -5680,8 +6056,13 @@ theirH6.addEventListener("click",ev=>{
     if(theirH6.attributes[2].value == `false`){
         theirH6.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirH6.attributes[2].value == `true`){
         hitMessage()
@@ -5695,8 +6076,13 @@ theirH7.addEventListener("click",ev=>{
     if(theirH7.attributes[2].value == `false`){
         theirH7.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirH7.attributes[2].value == `true`){
         hitMessage()
@@ -5709,8 +6095,13 @@ theirH8.addEventListener("click",ev=>{
     if(theirH8.attributes[2].value == `false`){
         theirH8.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirH8.attributes[2].value == `true`){
         hitMessage()
@@ -5723,8 +6114,13 @@ theirH9.addEventListener("click",ev=>{
     if(theirH9.attributes[2].value == `false`){
         theirH9.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirH9.attributes[2].value == `true`){
         hitMessage()
@@ -5738,8 +6134,13 @@ theirH10.addEventListener("click",ev=>{
     if(theirH10.attributes[2].value == `false`){
         theirH10.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirH10.attributes[2].value == `true`){
         hitMessage()
@@ -5755,8 +6156,13 @@ theirI1.addEventListener("click",ev=>{
     if(theirI1.attributes[2].value == `false`){
         theirI1.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirI1.attributes[2].value == `true`){
         hitMessage()
@@ -5770,8 +6176,13 @@ theirI2.addEventListener("click",ev=>{
     if(theirI2.attributes[2].value == `false`){
         theirI2.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirI2.attributes[2].value == `true`){
         hitMessage()
@@ -5785,8 +6196,13 @@ theirI3.addEventListener("click",ev=>{
     if(theirI3.attributes[2].value == `false`){
         theirI3.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirI3.attributes[2].value == `true`){
         hitMessage()
@@ -5800,8 +6216,13 @@ theirI4.addEventListener("click",ev=>{
     if(theirI4.attributes[2].value == `false`){
         theirI4.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirI4.attributes[2].value == `true`){
         hitMessage()
@@ -5815,8 +6236,13 @@ theirI5.addEventListener("click",ev=>{
     if(theirI5.attributes[2].value == `false`){
         theirI5.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirI5.attributes[2].value == `true`){
         hitMessage()
@@ -5830,8 +6256,13 @@ theirI6.addEventListener("click",ev=>{
     if(theirI6.attributes[2].value == `false`){
         theirI6.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirI6.attributes[2].value == `true`){
         hitMessage()
@@ -5845,8 +6276,13 @@ theirI7.addEventListener("click",ev=>{
     if(theirI7.attributes[2].value == `false`){
         theirI7.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirI7.attributes[2].value == `true`){
         hitMessage()
@@ -5860,8 +6296,13 @@ theirI8.addEventListener("click",ev=>{
     if(theirI8.attributes[2].value == `false`){
         theirI8.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirI8.attributes[2].value == `true`){
         hitMessage()
@@ -5875,8 +6316,13 @@ theirI9.addEventListener("click",ev=>{
     if(theirI9.attributes[2].value == `false`){
         theirI9.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirI9.attributes[2].value == `true`){
         hitMessage()
@@ -5889,8 +6335,13 @@ theirI10.addEventListener("click",ev=>{
     if(theirI10.attributes[2].value == `false`){
         theirI10.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirI10.attributes[2].value == `true`){
         hitMessage()
@@ -5906,8 +6357,13 @@ theirJ1.addEventListener("click",ev=>{
     if(theirJ1.attributes[2].value == `false`){
         theirJ1.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirJ1.attributes[2].value == `true`){
         hitMessage()
@@ -5921,8 +6377,13 @@ theirJ2.addEventListener("click",ev=>{
     if(theirJ2.attributes[2].value == `false`){
         theirJ2.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirJ2.attributes[2].value == `true`){
         hitMessage()
@@ -5936,8 +6397,13 @@ theirJ3.addEventListener("click",ev=>{
     if(theirJ3.attributes[2].value == `false`){
         theirJ3.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirJ3.attributes[2].value == `true`){
         hitMessage()
@@ -5950,8 +6416,13 @@ theirJ4.addEventListener("click",ev=>{
     if(theirJ4.attributes[2].value == `false`){
         theirJ4.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirJ4.attributes[2].value == `true`){
         hitMessage()
@@ -5965,8 +6436,13 @@ theirJ5.addEventListener("click",ev=>{
     if(theirJ5.attributes[2].value == `false`){
         theirJ5.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirJ5.attributes[2].value == `true`){
         hitMessage()
@@ -5980,8 +6456,13 @@ theirJ6.addEventListener("click",ev=>{
     if(theirJ6.attributes[2].value == `false`){
         theirJ6.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirJ6.attributes[2].value == `true`){
         hitMessage()
@@ -5995,8 +6476,13 @@ theirJ7.addEventListener("click",ev=>{
     if(theirJ7.attributes[2].value == `false`){
         theirJ7.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirJ7.attributes[2].value == `true`){
         hitMessage()
@@ -6010,8 +6496,13 @@ theirJ8.addEventListener("click",ev=>{
     if(theirJ8.attributes[2].value == `false`){
         theirJ8.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirJ8.attributes[2].value == `true`){
         hitMessage()
@@ -6025,8 +6516,13 @@ theirJ9.addEventListener("click",ev=>{
     if(theirJ9.attributes[2].value == `false`){
         theirJ9.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirJ9.attributes[2].value == `true`){
         hitMessage()
@@ -6040,8 +6536,13 @@ theirJ10.addEventListener("click",ev=>{
     if(theirJ10.attributes[2].value == `false`){
         theirJ10.style.opacity = 0;
         missMessage()
+        if(useTyperWriter == true){
         setTimeout(enemyMessage,1000)
-        setTimeout(enemyTurn,3000)
+        setTimeout(enemyTurn,3000)}
+        else{
+        setTimeout(enemyMessage,500)
+        setTimeout(enemyTurn,1000)
+        }
     }
     else if(theirJ10.attributes[2].value == `true`){
         hitMessage()
