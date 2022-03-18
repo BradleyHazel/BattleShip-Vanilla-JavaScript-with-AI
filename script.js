@@ -17,6 +17,19 @@ let lastShipLocations=[];
 let round = 0;
 let shipcounter = 0
 
+let reducedListOfLetters = 
+[`A2`,`A4`,`A6`,`A8`,`A10`,
+ `B1`,`B3`,`B5`,`B7`,`B9`,
+ `C2`,`C4`,`C6`,`C8`,`C10`,
+ `D1`,`D3`,`D5`,`D7`,`D9`,
+ `E2`,`E4`,`E6`,`E8`,`E10`,
+ `F1`,`F3`,`F5`,`F7`,`F9`,
+ `G2`,`G4`,`G6`,`G8`,`G10`,
+ `H1`,`H3`,`H5`,`H7`,`H9`,
+ `I2`,`I4`,`I6`,`I8`,`I10`,
+ `J1`,`J3`,`J5`,`J7`,`J9`,
+]
+
 
 
 
@@ -46,6 +59,23 @@ let listOfLetters = [`A1`,`A2`,`A3`,`A4`,`A5`,`A6`,`A7`,`A8`,`A9`,`A10`,
 
                     let maxProb = 0;
                     let maxProbSpace;
+
+
+                    function reduceby20percent (){
+                        for(let letter in reducedListOfLetters){
+                            let entry = reducedListOfLetters[letter]
+                                probablityMap[entry]= Math.round((probablityMap[entry]-(probablityMap[entry]*0.20))* 100) / 100
+                        }
+                        }
+                        reduceby20percent()
+    function increaseby20percent (){
+                            for(let letter in reducedListOfLetters){
+                                let entry = reducedListOfLetters[letter]
+                                    probablityMap[entry]= Math.round((probablityMap[entry]+(probablityMap[entry]*0.20))* 100) / 100
+                            }
+                            }
+                            
+
 
 
 
@@ -4912,6 +4942,27 @@ function findPotentialTargets (enemyChoice){
         }
         else{
 
+            if(topPosition){
+                if(isPointAlreadyHit(topPosition)==-1){
+                        potentialTargets.push(topPosition)
+                    }
+                }
+            if(bottomPosition){
+                if(isPointAlreadyHit(bottomPosition)==-1){
+                    potentialTargets.push(bottomPosition)
+                }
+            }
+            if(rightPosition){
+                if(isPointAlreadyHit(rightPosition)==-1){
+                    potentialTargets.push(rightPosition)
+                }       
+        }
+            if(leftPosition){
+                if(isPointAlreadyHit(leftPosition)==-1){
+                    potentialTargets.push(leftPosition)
+                }
+            }
+            
         }
         
 
@@ -5208,6 +5259,7 @@ function checktwo2LongShipSunk(){
     console.log(twolongshiphhitCounter)
     if(twolongshiphhitCounter == 2 && twolongshipalive == true){
         prompt(`They sunk your Destroyer!`)
+        increaseby20percent()
         twolongshipalive = false;
         return true
     }
