@@ -12,6 +12,9 @@ let threeShipOne =  document.getElementById("threeShipOne");
 let threeShipTwo =  document.getElementById("threeShipTwo");
 
 let useTyperWriter = false
+let gameStarted = false
+let gameOver = false
+let gameOverText;
 
 let lastShipLocations=[];
 let round = 0;
@@ -29,9 +32,6 @@ let reducedListOfLetters =
  `I2`,`I4`,`I6`,`I8`,`I10`,
  `J1`,`J3`,`J5`,`J7`,`J9`,
 ]
-
-
-
 
 let probablityMap = {
     A1:8.0,  A2:11.5, A3:14.3, A4:15.9, A5:16.7, A6:16.7, A7:15.9, A8:14.3, A9:11.5, A10:8.0,
@@ -61,23 +61,22 @@ let listOfLetters = [`A1`,`A2`,`A3`,`A4`,`A5`,`A6`,`A7`,`A8`,`A9`,`A10`,
                     let maxProbSpace;
 
 
-                    function reduceby20percent (){
-                        for(let letter in reducedListOfLetters){
-                            let entry = reducedListOfLetters[letter]
-                                probablityMap[entry]= Math.round((probablityMap[entry]-(probablityMap[entry]*0.20))* 100) / 100
-                        }
-                        }
-                        reduceby20percent()
-    function increaseby20percent (){
-                            for(let letter in reducedListOfLetters){
-                                let entry = reducedListOfLetters[letter]
-                                    probablityMap[entry]= Math.round((probablityMap[entry]+(probablityMap[entry]*0.20))* 100) / 100
-                            }
-                            }
+function reduceby20percent (){
+    for(let letter in reducedListOfLetters){
+        let entry = reducedListOfLetters[letter]
+        probablityMap[entry]= Math.round((probablityMap[entry]-(probablityMap[entry]*0.20))* 100) / 100
+    }
+}
+reduceby20percent()
+function increaseby20percent (){
+        for(let letter in reducedListOfLetters){
+            let entry = reducedListOfLetters[letter]
+                probablityMap[entry]= Math.round((probablityMap[entry]+(probablityMap[entry]*0.20))* 100) / 100
+        }
+}
                             
 
-
-
+function restartGame(){ location.reload(); }
 
 function toggleTypeWriter(){
     if(useTyperWriter){
@@ -3759,6 +3758,11 @@ let theirJ8 = document.getElementById("theirJ8");
 let theirJ9 = document.getElementById("theirJ9");
 let theirJ10 = document.getElementById("theirJ10");
 
+
+
+
+
+
 function generateEnemyMap(){
     // set the five ships up
     // lets start with the big ship
@@ -4644,7 +4648,13 @@ typeWriter4()
 function enemyMissMessage(){
     resetP()
 let  dvariable = 0;
-let animatedText7 = `They missed!`
+let animatedText7;
+if( gameOver== true){
+    animatedText7 = gameOverText
+}
+else{
+animatedText7 = `They missed!`
+}
 function typeWriter4() {
     if(useTyperWriter == true){
 
@@ -4666,7 +4676,13 @@ typeWriter4()
 function hitMessage(){
     resetP()
 let  zvariable = 0;
-let animatedText5 = `You got a hit! Attack again!`
+let animatedText5;
+if(gameOver == true){
+    document.getElementById("message").innerHTML =`You lose!`
+}
+else{
+animatedText5 = `You got a hit! Attack again!`
+}
 function typeWriter5() {
     if(useTyperWriter == true){
     
@@ -4687,7 +4703,13 @@ typeWriter5()
 function enemyHitMessage(){
     resetP()
 let  zvariablez = 0;
-let animatedText10 = `They got a hit!`
+let animatedText10;
+if(gameOver==true){
+    animatedText10 = gameOverText
+}
+else{
+    animatedText10 = `They got a hit!`
+}
 function typeWriter10() {
    
     if(useTyperWriter == true){
@@ -4708,7 +4730,13 @@ function typeWriter10() {
 function enemyMessage(){
     resetP()
 let  wvariable = 0;
-let animatedText6 = `Their turn to attack!`
+let animatedText6;
+if(gameOver==true){
+    animatedText6= gameOverText
+}
+else{
+animatedText6 = `Their turn to attack!`
+}
 function typeWriter6() {
     if(useTyperWriter == true){
 
@@ -4730,7 +4758,13 @@ typeWriter6()
 function yourTurnMessage(){
     resetP()
 let  avariable = 0;
-let animatedText9 = `Your turn!`
+let animatedText9 
+if(gameOver == true){
+animatedText9 = gameOverText
+}
+else{
+animatedText9 = `Your turn!`
+}
 function typeWriter9() {
     if(useTyperWriter == true){
 
@@ -5167,9 +5201,6 @@ return maxProbSpace
 
 let potentialTargets =[]
 
-
-
-
 function checkLongShipSunk(){
 
     let longshiphhitCounter=0;
@@ -5180,7 +5211,7 @@ function checkLongShipSunk(){
     }
     console.log(longshiphhitCounter)
     if(longshiphhitCounter == 5 && longshipalive == true){
-        prompt(`They sunk your carrier!`)
+        alert(`They sunk your carrier!`)
         longshipalive = false;
         potentialTargets = []
         return true
@@ -5200,7 +5231,7 @@ function checkfourLongShipSunk(){
     }
     console.log(fourlongshiphhitCounter)
     if(fourlongshiphhitCounter == 4 && fourlongshipalive == true){
-        prompt(`They sunk your BattleShip!`)
+        alert(`They sunk your BattleShip!`)
         fourlongshipalive = false;
         return true
     }
@@ -5219,7 +5250,7 @@ function checkthree1LongShipSunk(){
     }
     console.log(three1longshiphhitCounter)
     if(three1longshiphhitCounter == 3 && three1longshipalive == true){
-        prompt(`They sunk your Cruiser!`)
+        alert(`They sunk your Cruiser!`)
         three1longshipalive = false;
         return true
     }
@@ -5238,7 +5269,7 @@ function checkthree2LongShipSunk(){
     }
     console.log(three2longshiphhitCounter)
     if(three2longshiphhitCounter == 3 && three2longshipalive == true){
-        prompt(`They sunk your Stealth Ship!`)
+        alert(`They sunk your Stealth Ship!`)
         three2longshipalive = false;
         return true
     }
@@ -5258,7 +5289,7 @@ function checktwo2LongShipSunk(){
     }
     console.log(twolongshiphhitCounter)
     if(twolongshiphhitCounter == 2 && twolongshipalive == true){
-        prompt(`They sunk your Destroyer!`)
+        alert(`They sunk your Destroyer!`)
         increaseby20percent()
         twolongshipalive = false;
         return true
@@ -5278,7 +5309,8 @@ console.log(`Battleship: `+battleshipCount)
 
 
 function enemyTurn(){
-
+    if(gameOver == true){}
+    else{
 
     let enemyChoice;
     if(potentialTargets.length>0){
@@ -5329,7 +5361,7 @@ function enemyTurn(){
     
     //checkEnemyShips()}
 }
-    
+}
 }
 
 
@@ -7355,6 +7387,7 @@ theirJ10.addEventListener("click",ev=>{
 })
 
 checkEnemyShips()
+gameStarted = true
 }
 
 
@@ -7437,27 +7470,32 @@ function checkEnemyShips(){
     console.log(`Battleship: `+battleshipCount)
 
     if(destroyerCount ==0 && destroyerEventDone == false){
-        prompt(`You sunk the Destroyer!`)
+        alert(`You sunk the Destroyer!`)
         destroyerEventDone = true
     }
     if(stealthCount ==0 && stealthEventDone == false){
-        prompt(`You sunk the Stealth Ship!`)
+        alert(`You sunk the Stealth Ship!`)
         stealthEventDone = true
     }
     if(carrierCount ==0 && carrierEventDone == false){
-        prompt(`You sunk the Carrier!`)
+        alert(`You sunk the Carrier!`)
         carrierEventDone = true
     }
     if(cruiserCount ==0 && cruiserEventDone == false){
-        prompt(`You sunk the Cruiser!`)
+        alert(`You sunk the Cruiser!`)
         cruiserEventDone = true
     }
     if(battleshipCount ==0 && battleshipEventDone == false){
-        prompt(`You sunk the BattleShip!`)
+        alert(`You sunk the BattleShip!`)
         battleshipEventDone = true
     }
     if(destroyerCount ==0 && stealthCount ==0 && carrierCount ==0 && cruiserCount ==0 && battleshipCount ==0){
-        prompt(`You win!!`)
+        alert(`You win!!`)
+        if(gameStarted == true){
+            gameOverText = `You Win!`
+            document.getElementById("message").innerHTML =`You Win!`
+            endGame()
+        }
     }
 }
 
@@ -7613,7 +7651,45 @@ function checkFriendlyShips(){
     }}
 
     if(hitCounter >=17){
-        prompt(`You lose!`)
+        document.getElementById("message").innerHTML =`You lose!`
+        gameOverText = `You lose!`
+        endGame()
+
     }
     console.log(hitCounter)
+}
+     
+
+
+function endGame(){
+    // remove click hander on div
+    gameOver = true
+    let enemyShipList = 
+    [
+     theirA1, theirA2, theirA3, theirA4, theirA5,
+     theirA6, theirA7, theirA8, theirA9,theirA10,
+     theirB1, theirB2, theirB3, theirB4, theirB5,
+     theirB6, theirB7, theirB8, theirB9, theirB10, 
+     theirC1, theirC2, theirC3, theirC4, theirC5, 
+     theirC6, theirC7, theirC8, theirC9, theirC10, 
+     theirD1, theirD2, theirD3, theirD4, theirD5, 
+     theirD6, theirD7, theirD8, theirD9, theirD10, 
+     theirE1, theirE2, theirE3, theirE4, theirE5, 
+     theirE6, theirE7, theirE8, theirE9, theirE10, 
+     theirF1, theirF2, theirF3, theirF4, theirF5, 
+     theirF6, theirF7, theirF8, theirF9, theirF10,
+     theirG1, theirG2, theirG3, theirG4, theirG5, 
+     theirG6, theirG7, theirG8, theirG9, theirG10, 
+     theirH1, theirH2, theirH3, theirH4, theirH5, 
+     theirH6, theirH7, theirH8, theirH9, theirH10,
+     theirI1, theirI2, theirI3, theirI4, theirI5, 
+     theirI6, theirI7, theirI8, theirI9, theirI10, 
+     theirJ1, theirJ2, theirJ3, theirJ4, theirJ5, 
+     theirJ6, theirJ7, theirJ8, theirJ9, theirJ10
+    ]
+    for(let spot in enemyShipList){
+            var old_element = enemyShipList[spot]
+            var new_element = old_element.cloneNode(true);
+            old_element.parentNode.replaceChild(new_element, old_element);
+    }
 }
