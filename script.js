@@ -3,7 +3,7 @@
 // https://sebhastian.com/javascript-rotate-images/#:~:text=When%20you%20need%20to%20rotate,element%20you%20want%20to%20rotate.&text=To%20rotate%20the%20image%2C%20you%20can%20select%20the%20element%20using%20document.
 // typewriter effect https://www.w3schools.com/howto/howto_js_typewriter.asp
 // https://www.w3schools.com/js/js_timing.asp
-// for the AI portion https://www.datagenetics.com/bloHuntg/december32011/index.html 
+// for the AI portion https://www.datagenetics.com/bloHuntg/december32011/index.html AND https://cliambrown.com/battleship/ 
 
 let smallShip = document.getElementById("smallShip");
 let bigShip = document.getElementById("biggestShip"); 
@@ -11,11 +11,41 @@ let fourLongShip = document.getElementById("fourLongShip");
 let threeShipOne =  document.getElementById("threeShipOne");
 let threeShipTwo =  document.getElementById("threeShipTwo");
 
-let useTyperWriter = true
+let useTyperWriter = false
 
 let lastShipLocations=[];
 let round = 0;
 let shipcounter = 0
+
+
+
+
+let probablityMap = {
+    A1:8.0,  A2:11.5, A3:14.3, A4:15.9, A5:16.7, A6:16.7, A7:15.9, A8:14.3, A9:11.5, A10:8.0,
+    B1:11.5, B2:14.3, B3:16.6, B4:17.8, B5:18.4, B6:18.4, B7:17.8, B8:16.6, B9:14.3, B10:11.5,
+    C1:14.3, C2:16.6, C3:18.4, C4:19.4, C5:19.9, C6:19.9, C7:19.4, C8:18.4, C9:16.6, C10:14.3,
+    D1:15.9, D2:17.8, D3:19.4, D4:20.3, D5:20.8, D6:20.8, D7:20.3, D8:19.4, D9:17.8, D10:15.9,
+    E1:16.7, E2:18.4, E3:19.9, E4:20.8, E5:21.4, E6:21.4, E7:20.8, E8:19.9, E9:18.4, E10:16.7,
+    F1:16.7, F2:18.4, F3:19.9, F4:20.8, F5:21.4, F6:21.4, F7:20.8, F8:19.9, F9:18.4, F10:16.7,
+    G1:15.9, G2:17.8, G3:19.4, G4:20.3, G5:20.8, G6:20.8, G7:20.3, G8:19.4, G9:17.8, G10:15.9,
+    H1:14.3, H2:16.6, H3:18.4, H4:19.4, H5:19.9, H6:19.9, H7:19.4, H8:18.4, H9:16.6, H10:14.3,
+    I1:11.5, I2:14.3, I3:16.6, I4:17.8, I5:18.4, I6:18.4, I7:17.8, I8:16.6, I9:14.3, I10:11.5,
+    J1:8.0,  J2:11.5, J3:14.3, J4:15.9, J5:16.7, J6:16.7, J7:15.9, J8:14.3, J9:11.5, J10:8.0
+}
+let listOfLetters = [`A1`,`A2`,`A3`,`A4`,`A5`,`A6`,`A7`,`A8`,`A9`,`A10`,
+                     `B1`,`B2`,`B3`,`B4`,`B5`,`B6`,`B7`,`B8`,`B9`,`B10`,
+                     `C1`,`C2`,`C3`,`C4`,`C5`,`C6`,`C7`,`C8`,`C9`,`C10`,
+                     `D1`,`D2`,`D3`,`D4`,`D5`,`D6`,`D7`,`D8`,`D9`,`D10`,
+                     `E1`,`E2`,`E3`,`E4`,`E5`,`E6`,`E7`,`E8`,`E9`,`E10`,
+                     `F1`,`F2`,`F3`,`F4`,`F5`,`F6`,`F7`,`F8`,`F9`,`F10`,
+                     `G1`,`G2`,`G3`,`G4`,`G5`,`G6`,`G7`,`G8`,`G9`,`G10`,
+                     `H1`,`H2`,`H3`,`H4`,`H5`,`H6`,`H7`,`H8`,`H9`,`H10`,
+                     `I1`,`I2`,`I3`,`I4`,`I5`,`I6`,`I7`,`I8`,`I9`,`I10`,
+                     `J1`,`J2`,`J3`,`J4`,`J5`,`J6`,`J7`,`J8`,`J9`,`J10`,
+                    ]
+
+                    let maxProb = 0;
+                    let maxProbSpace;
 
 
 
@@ -4168,13 +4198,331 @@ function chooseRandomGridPoint(){
     return `${randLetter}${randNum}`
 }
 
+let longShipFinalPositions=[];
+let fourlongShipFinalPositions=[];
+let threelong1ShipFinalPositions=[];
+let threelong2ShipFinalPositions=[];
+let twolongShipFinalPositions=[];
+
+function findShipsOnceTheyAreStarted(){
+
+    let ourShipList = 
+    [
+     ourA1, ourA2, ourA3, ourA4, ourA5,
+     ourA6, ourA7, ourA8, ourA9,ourA10,
+     ourB1, ourB2, ourB3, ourB4, ourB5,
+     ourB6, ourB7, ourB8, ourB9, ourB10, 
+     ourC1, ourC2, ourC3, ourC4, ourC5, 
+     ourC6, ourC7, ourC8, ourC9, ourC10, 
+     ourD1, ourD2, ourD3, ourD4, ourD5, 
+     ourD6, ourD7, ourD8, ourD9, ourD10, 
+     ourE1, ourE2, ourE3, ourE4, ourE5, 
+     ourE6, ourE7, ourE8, ourE9, ourE10, 
+     ourF1, ourF2, ourF3, ourF4, ourF5, 
+     ourF6, ourF7, ourF8, ourF9, ourF10,
+     ourG1, ourG2, ourG3, ourG4, ourG5, 
+     ourG6, ourG7, ourG8, ourG9, ourG10, 
+     ourH1, ourH2, ourH3, ourH4, ourH5, 
+     ourH6, ourH7, ourH8, ourH9, ourH10,
+     ourI1, ourI2, ourI3, ourI4, ourI5, 
+     ourI6, ourI7, ourI8, ourI9, ourI10, 
+     ourJ1, ourJ2, ourJ3, ourJ4, ourJ5, 
+     ourJ6, ourJ7, ourJ8, ourJ9, ourJ10
+    ]
+    let shipCenters =[]
+    for(let spot in ourShipList){
+        if(ourShipList[spot].hasChildNodes()){
+            shipCenters.push(ourShipList[spot].childNodes[0])
+        }
+    }
+    let longShip1;
+    let longShip2;
+    let longShip3;
+    let longShip4;
+    let longShip5;
+
+    let fourlongShip1;
+    let fourlongShip2;
+    let fourlongShip3;
+    let fourlongShip4;
+
+    let threelongShip1;
+    let threelongShip2;
+    let threelongShip3;
+
+    let three2longShip1;
+    let three2longShip2;
+    let three2longShip3;
+
+    let twolongship1;
+    let twolongship2;
+ 
+    
+    for(let shipps in shipCenters){
+        let imgsrc = shipCenters[shipps].attributes.src.nodeValue
+        let orientation = shipCenters[shipps].attributes.shiporientation.value
+        if(imgsrc==`space_carrier.png`){
+            if(orientation == `vertical`){
+                longShip3 =shipCenters[shipps].parentNode.id
+                if(longShip3.slice(0,1)==`C`){
+                    longShip1=`A${longShip3.slice(1,longShip3.length)}`
+                    longShip2=`B${longShip3.slice(1,longShip3.length)}`
+                    longShip4=`D${longShip3.slice(1,longShip3.length)}`
+                    longShip5=`E${longShip3.slice(1,longShip3.length)}`
+                }
+                if(longShip3.slice(0,1)==`D`){
+                    longShip1=`B${longShip3.slice(1,longShip3.length)}`
+                    longShip2=`C${longShip3.slice(1,longShip3.length)}`
+                    longShip4=`E${longShip3.slice(1,longShip3.length)}`
+                    longShip5=`F${longShip3.slice(1,longShip3.length)}`
+                }
+                if(longShip3.slice(0,1)==`E`){
+                    longShip1=`C${longShip3.slice(1,longShip3.length)}`
+                    longShip2=`D${longShip3.slice(1,longShip3.length)}`
+                    longShip4=`F${longShip3.slice(1,longShip3.length)}`
+                    longShip5=`G${longShip3.slice(1,longShip3.length)}`
+                }
+                if(longShip3.slice(0,1)==`F`){
+                    longShip1=`D${longShip3.slice(1,longShip3.length)}`
+                    longShip2=`E${longShip3.slice(1,longShip3.length)}`
+                    longShip4=`G${longShip3.slice(1,longShip3.length)}`
+                    longShip5=`H${longShip3.slice(1,longShip3.length)}`
+                }
+                if(longShip3.slice(0,1)==`G`){
+                    longShip1=`E${longShip3.slice(1,longShip3.length)}`
+                    longShip2=`F${longShip3.slice(1,longShip3.length)}`
+                    longShip4=`H${longShip3.slice(1,longShip3.length)}`
+                    longShip5=`I${longShip3.slice(1,longShip3.length)}`
+                }
+                if(longShip3.slice(0,1)==`H`){
+                    longShip1=`F${longShip3.slice(1,longShip3.length)}`
+                    longShip2=`G${longShip3.slice(1,longShip3.length)}`
+                    longShip4=`I${longShip3.slice(1,longShip3.length)}`
+                    longShip5=`J${longShip3.slice(1,longShip3.length)}`
+                }
+            }
+            else if(orientation == `horizontal`){
+                longShip1 = `${shipCenters[shipps].parentNode.id.slice(0,1)}${parseInt(shipCenters[shipps].parentNode.id.slice(1,shipCenters[shipps].parentNode.id.length))+2}`
+                longShip2 = `${shipCenters[shipps].parentNode.id.slice(0,1)}${parseInt(shipCenters[shipps].parentNode.id.slice(1,shipCenters[shipps].parentNode.id.length))+1}`
+                longShip3 = `${shipCenters[shipps].parentNode.id}`
+                longShip4 = `${shipCenters[shipps].parentNode.id.slice(0,1)}${parseInt(shipCenters[shipps].parentNode.id.slice(1,shipCenters[shipps].parentNode.id.length))-1}`
+                longShip5 = `${shipCenters[shipps].parentNode.id.slice(0,1)}${parseInt(shipCenters[shipps].parentNode.id.slice(1,shipCenters[shipps].parentNode.id.length))-2}`
+                
+            }
+            longShipFinalPositions.push(longShip1)
+            longShipFinalPositions.push(longShip2)
+            longShipFinalPositions.push(longShip3)
+            longShipFinalPositions.push(longShip4)
+            longShipFinalPositions.push(longShip5)
+        }
+        if(imgsrc==`Spaceship_tut_thin.png`){
+            if(orientation == `vertical`){
+                fourlongShip3 =shipCenters[shipps].parentNode.id
+                if(fourlongShip3.slice(0,1)==`C`){
+                    fourlongShip1=`A${fourlongShip3.slice(1,fourlongShip3.length)}`
+                    fourlongShip2=`B${fourlongShip3.slice(1,fourlongShip3.length)}`
+                    fourlongShip4=`D${fourlongShip3.slice(1,fourlongShip3.length)}`
+                }
+                if(fourlongShip3.slice(0,1)==`D`){
+                    fourlongShip1=`B${fourlongShip3.slice(1,fourlongShip3.length)}`
+                    fourlongShip2=`C${fourlongShip3.slice(1,fourlongShip3.length)}`
+                    fourlongShip4=`E${fourlongShip3.slice(1,fourlongShip3.length)}`
+                }
+                if(fourlongShip3.slice(0,1)==`E`){
+                    fourlongShip1=`C${fourlongShip3.slice(1,fourlongShip3.length)}`
+                    fourlongShip2=`D${fourlongShip3.slice(1,fourlongShip3.length)}`
+                    fourlongShip4=`F${fourlongShip3.slice(1,fourlongShip3.length)}`
+                }
+                if(fourlongShip3.slice(0,1)==`F`){
+                    fourlongShip1=`D${fourlongShip3.slice(1,fourlongShip3.length)}`
+                    fourlongShip2=`E${fourlongShip3.slice(1,fourlongShip3.length)}`
+                    fourlongShip4=`G${fourlongShip3.slice(1,fourlongShip3.length)}`
+                }
+                if(fourlongShip3.slice(0,1)==`G`){
+                    fourlongShip1=`E${fourlongShip3.slice(1,fourlongShip3.length)}`
+                    fourlongShip2=`F${fourlongShip3.slice(1,fourlongShip3.length)}`
+                    fourlongShip4=`H${fourlongShip3.slice(1,fourlongShip3.length)}`
+                }
+                if(fourlongShip3.slice(0,1)==`H`){
+                    fourlongShip1=`F${fourlongShip3.slice(1,fourlongShip3.length)}`
+                    fourlongShip2=`G${fourlongShip3.slice(1,fourlongShip3.length)}`
+                    fourlongShip4=`I${fourlongShip3.slice(1,fourlongShip3.length)}`
+                }
+                if(fourlongShip3.slice(0,1)==`I`){
+                    fourlongShip1=`G${fourlongShip3.slice(1,fourlongShip3.length)}`
+                    fourlongShip2=`H${fourlongShip3.slice(1,fourlongShip3.length)}`
+                    fourlongShip4=`J${fourlongShip3.slice(1,fourlongShip3.length)}`
+                }
+            }
+            else if(orientation == `horizontal`){
+                fourlongShip1 = `${shipCenters[shipps].parentNode.id.slice(0,1)}${parseInt(shipCenters[shipps].parentNode.id.slice(1,shipCenters[shipps].parentNode.id.length))+2}`
+                fourlongShip2 = `${shipCenters[shipps].parentNode.id.slice(0,1)}${parseInt(shipCenters[shipps].parentNode.id.slice(1,shipCenters[shipps].parentNode.id.length))+1}`
+                fourlongShip3 = `${shipCenters[shipps].parentNode.id}`
+                fourlongShip4 = `${shipCenters[shipps].parentNode.id.slice(0,1)}${parseInt(shipCenters[shipps].parentNode.id.slice(1,shipCenters[shipps].parentNode.id.length))-1}`
+                
+            }
+            fourlongShipFinalPositions.push(fourlongShip1)
+            fourlongShipFinalPositions.push(fourlongShip2)
+            fourlongShipFinalPositions.push(fourlongShip3)
+            fourlongShipFinalPositions.push(fourlongShip4)
+        }
+        if(imgsrc==`shiper_mix_02.png`){
+            if(orientation == `vertical`){
+                threelongShip2 =shipCenters[shipps].parentNode.id
+                if(threelongShip2.slice(0,1)==`B`){
+                    threelongShip1=`A${threelongShip2.slice(1,threelongShip2.length)}`
+                    threelongShip3=`C${threelongShip2.slice(1,threelongShip2.length)}`
+                }
+                if(threelongShip2.slice(0,1)==`C`){
+                    threelongShip1=`B${threelongShip2.slice(1,threelongShip2.length)}`
+                    threelongShip3=`D${threelongShip2.slice(1,threelongShip2.length)}`
+                }
+                if(threelongShip2.slice(0,1)==`D`){
+                    threelongShip1=`C${threelongShip2.slice(1,threelongShip2.length)}`
+                    threelongShip3=`E${threelongShip2.slice(1,threelongShip2.length)}`
+                }
+                if(threelongShip2.slice(0,1)==`E`){
+                    threelongShip1=`D${threelongShip2.slice(1,threelongShip2.length)}`
+                    threelongShip3=`F${threelongShip2.slice(1,threelongShip2.length)}`
+                }
+                if(threelongShip2.slice(0,1)==`F`){
+                    threelongShip1=`E${threelongShip2.slice(1,threelongShip2.length)}`
+                    threelongShip3=`G${threelongShip2.slice(1,threelongShip2.length)}`
+                }
+                if(threelongShip2.slice(0,1)==`G`){
+                    threelongShip1=`F${threelongShip2.slice(1,threelongShip2.length)}`
+                    threelongShip3=`H${threelongShip2.slice(1,threelongShip2.length)}`
+                }
+                if(threelongShip2.slice(0,1)==`H`){
+                    threelongShip1=`G${threelongShip2.slice(1,threelongShip2.length)}`
+                    threelongShip3=`I${threelongShip2.slice(1,threelongShip2.length)}`
+                }
+                if(threelongShip2.slice(0,1)==`I`){
+                    threelongShip1=`H${threelongShip2.slice(1,threelongShip2.length)}`
+                    threelongShip3=`J${threelongShip2.slice(1,threelongShip2.length)}`
+                }
+            }
+            else if(orientation == `horizontal`){
+                threelongShip1 = `${shipCenters[shipps].parentNode.id.slice(0,1)}${parseInt(shipCenters[shipps].parentNode.id.slice(1,shipCenters[shipps].parentNode.id.length))+1}`
+                threelongShip2 = `${shipCenters[shipps].parentNode.id}`
+                threelongShip3 = `${shipCenters[shipps].parentNode.id.slice(0,1)}${parseInt(shipCenters[shipps].parentNode.id.slice(1,shipCenters[shipps].parentNode.id.length))-1}`
+                
+            }
+            threelong1ShipFinalPositions.push(threelongShip1)
+            threelong1ShipFinalPositions.push(threelongShip2)
+            threelong1ShipFinalPositions.push(threelongShip3)
+        }
+        if(imgsrc==`ship9.png`){
+            if(orientation == `vertical`){
+                three2longShip2 =shipCenters[shipps].parentNode.id
+                if(three2longShip2.slice(0,1)==`B`){
+                    three2longShip1=`A${three2longShip2.slice(1,three2longShip2.length)}`
+                    three2longShip3=`C${three2longShip2.slice(1,three2longShip2.length)}`
+                }
+                if(three2longShip2.slice(0,1)==`C`){
+                    three2longShip1=`B${three2longShip2.slice(1,three2longShip2.length)}`
+                    three2longShip3=`D${three2longShip2.slice(1,three2longShip2.length)}`
+                }
+                if(three2longShip2.slice(0,1)==`D`){
+                    three2longShip1=`C${three2longShip2.slice(1,three2longShip2.length)}`
+                    three2longShip3=`E${three2longShip2.slice(1,three2longShip2.length)}`
+                }
+                if(three2longShip2.slice(0,1)==`E`){
+                    three2longShip1=`D${three2longShip2.slice(1,three2longShip2.length)}`
+                    three2longShip3=`F${three2longShip2.slice(1,three2longShip2.length)}`
+                }
+                if(three2longShip2.slice(0,1)==`F`){
+                    three2longShip1=`E${three2longShip2.slice(1,three2longShip2.length)}`
+                    three2longShip3=`G${three2longShip2.slice(1,three2longShip2.length)}`
+                }
+                if(three2longShip2.slice(0,1)==`G`){
+                    three2longShip1=`F${three2longShip2.slice(1,three2longShip2.length)}`
+                    three2longShip3=`H${three2longShip2.slice(1,three2longShip2.length)}`
+                }
+                if(three2longShip2.slice(0,1)==`H`){
+                    three2longShip1=`G${three2longShip2.slice(1,three2longShip2.length)}`
+                    three2longShip3=`I${three2longShip2.slice(1,three2longShip2.length)}`
+                }
+                if(three2longShip2.slice(0,1)==`I`){
+                    three2longShip1=`H${three2longShip2.slice(1,three2longShip2.length)}`
+                    three2longShip3=`J${three2longShip2.slice(1,three2longShip2.length)}`
+                }
+            }
+            else if(orientation == `horizontal`){
+                three2longShip1 = `${shipCenters[shipps].parentNode.id.slice(0,1)}${parseInt(shipCenters[shipps].parentNode.id.slice(1,shipCenters[shipps].parentNode.id.length))+1}`
+                three2longShip2 = `${shipCenters[shipps].parentNode.id}`
+                three2longShip3 = `${shipCenters[shipps].parentNode.id.slice(0,1)}${parseInt(shipCenters[shipps].parentNode.id.slice(1,shipCenters[shipps].parentNode.id.length))-1}`
+                
+            }
+            threelong2ShipFinalPositions.push(three2longShip1)
+            threelong2ShipFinalPositions.push(three2longShip2)
+            threelong2ShipFinalPositions.push(three2longShip3)
+        }
+        if(imgsrc==`antmaker.png`){
+            if(orientation == `vertical`){
+                twolongship1 =shipCenters[shipps].parentNode.id
+                if(twolongship1.slice(0,1)==`A`){
+                    twolongship2=`B${twolongship1.slice(1,twolongship1.length)}`
+                }
+                if(twolongship1.slice(0,1)==`B`){
+                    twolongship2=`C${twolongship1.slice(1,twolongship1.length)}`
+                }
+                if(twolongship1.slice(0,1)==`C`){
+                    twolongship2=`D${twolongship1.slice(1,twolongship1.length)}`
+                }
+                if(twolongship1.slice(0,1)==`D`){
+                    twolongship2=`E${twolongship1.slice(1,twolongship1.length)}`
+                }
+                if(twolongship1.slice(0,1)==`E`){
+                    twolongship2=`F${twolongship1.slice(1,twolongship1.length)}`
+                }
+                if(twolongship1.slice(0,1)==`F`){
+                    twolongship2=`G${twolongship1.slice(1,twolongship1.length)}`
+                }
+                if(twolongship1.slice(0,1)==`G`){
+                    twolongship2=`H${twolongship1.slice(1,twolongship1.length)}`
+                }
+                if(twolongship1.slice(0,1)==`H`){
+                    twolongship2=`I${twolongship1.slice(1,twolongship1.length)}`
+                }
+                if(twolongship1.slice(0,1)==`I`){
+                    twolongship2=`J${twolongship1.slice(1,twolongship1.length)}`
+                }
+
+     
+            }
+            else if(orientation == `horizontal`){
+                twolongship1 = `${shipCenters[shipps].parentNode.id.slice(0,1)}${parseInt(shipCenters[shipps].parentNode.id.slice(1,shipCenters[shipps].parentNode.id.length))+1}`
+                twolongship2 = `${shipCenters[shipps].parentNode.id}`
+                
+            }
+            twolongShipFinalPositions.push(twolongship1)
+            twolongShipFinalPositions.push(twolongship2)
+        }
+
+    }
+
+    console.log(longShipFinalPositions)
+    console.log(fourlongShipFinalPositions)
+    console.log(threelong1ShipFinalPositions)
+    console.log(threelong2ShipFinalPositions)
+    console.log(twolongShipFinalPositions)
+}
+let longshipalive = true;
+let fourlongshipalive = true;
+let three1longshipalive = true;
+let three2longshipalive = true;
+let twolongshipalive = true;
+
+
+
 
 
 
 function startGame(){
 
 generateEnemyMap()
-
+findShipsOnceTheyAreStarted()
 smallShip.setAttribute(`draggable`, false)
 bigShip.setAttribute(`draggable`, false)
 fourLongShip.setAttribute(`draggable`, false)
@@ -4206,7 +4554,14 @@ function typeWriter2() {
 }
 typeWriter2()
 
+
+if(useTyperWriter == true){
+
 setTimeout(resetP,4699);
+}
+else{
+    setTimeout(resetP,1699);
+}
 let  xvariable = 0;
 let animatedText3 = `Click on an enemy grid position to fire a missile!`
 function typeWriter3() {
@@ -4222,7 +4577,15 @@ function typeWriter3() {
         document.getElementById("message").innerHTML = animatedText3;
     }
   }
-setTimeout(typeWriter3,4700)
+
+
+if(useTyperWriter == true){
+
+    setTimeout(typeWriter3,4700)
+    }
+    else{
+        setTimeout(typeWriter3,1700);
+    }
 
 
 function missMessage(){
@@ -4363,6 +4726,8 @@ function isPointAlreadyHit(enemyChoice){
 
 
 function findPotentialTargets (enemyChoice){
+
+
     let hitPosition = enemyChoice.id
 
     let rightPosition;
@@ -4446,27 +4811,34 @@ function findPotentialTargets (enemyChoice){
             bottomPosition = `J${hitPosition.slice(1,hitPosition.length)}`
         }
     }
+    let preList =[]
 
     if(bottomPosition){
         if(isPointAlreadyHit(bottomPosition)==-1){
-        potentialTargets.push(bottomPosition)
+            preList.push(bottomPosition)
         }
     }
     if(topPosition){
         if(isPointAlreadyHit(topPosition)==-1){
-        potentialTargets.push(topPosition)
+            preList.push(topPosition)
         }
     }
     if(leftPosition){
         if(isPointAlreadyHit(leftPosition)==-1){
-        potentialTargets.push(leftPosition)
+            preList.push(leftPosition)
         }
     }
     if(rightPosition){
         if(isPointAlreadyHit(rightPosition)==-1){
-        potentialTargets.push(rightPosition)
+            preList.push(rightPosition)
         }
     }
+    while(preList.length>0){
+        let randoNum = Math.floor(Math.random()*preList.length)
+        potentialTargets.push(preList[randoNum])
+        preList.splice(randoNum, 1);
+    }
+
     console.log(topPosition)
     console.log(rightPosition)
     console.log(bottomPosition)
@@ -4481,35 +4853,281 @@ function findPotentialTargets (enemyChoice){
 
 let previousEnemyChoices =[]
 // Once the computer hits a spot it will try a spot next to the 
+
+
+//probablityMap[`A1`]
+
+
+
+function updateProbMapOnMiss(missSpace){
+    console.log(probablityMap[missSpace.id])
+    probablityMap[missSpace.id] = 0
+    let waveRight1 = `${missSpace.id.slice(0,1)}${parseInt(missSpace.id.slice(1,missSpace.length))+1}`
+    let waveRight2 = `${missSpace.id.slice(0,1)}${parseInt(missSpace.id.slice(1,missSpace.length))+2}`
+    let waveRight3 = `${missSpace.id.slice(0,1)}${parseInt(missSpace.id.slice(1,missSpace.length))+3}`
+    let waveRight4 = `${missSpace.id.slice(0,1)}${parseInt(missSpace.id.slice(1,missSpace.length))+4}`
+    let waveLeft1 = `${missSpace.id.slice(0,1)}${parseInt(missSpace.id.slice(1,missSpace.length))-1}`
+    let waveLeft2 = `${missSpace.id.slice(0,1)}${parseInt(missSpace.id.slice(1,missSpace.length))-2}`
+    let waveLeft3 = `${missSpace.id.slice(0,1)}${parseInt(missSpace.id.slice(1,missSpace.length))-3}`
+    let waveLeft4 = `${missSpace.id.slice(0,1)}${parseInt(missSpace.id.slice(1,missSpace.length))-4}`
+   
+    
+    
+    let waveTop4;
+    let waveTop3;
+    let waveTop2;
+    let waveTop1;
+    
+    let waveBottom1;
+    let waveBottom2;
+    let waveBottom3;
+    let waveBottom4;
+
+    if(missSpace.id.slice(0,1) == `A`){
+        waveBottom1 = `B${missSpace.id.slice(1,missSpace.id.length)}`
+        waveBottom2 = `C${missSpace.id.slice(1,missSpace.id.length)}`
+        waveBottom3 = `D${missSpace.id.slice(1,missSpace.id.length)}`
+        waveBottom4 = `E${missSpace.id.slice(1,missSpace.id.length)}`
+    }
+    else if(missSpace.id.slice(0,1) == `B`){
+        waveTop1 = `A${missSpace.id.slice(1,missSpace.id.length)}`
+        waveBottom1 = `C${missSpace.id.slice(1,missSpace.id.length)}`
+        waveBottom2 = `D${missSpace.id.slice(1,missSpace.id.length)}`
+        waveBottom3 = `E${missSpace.id.slice(1,missSpace.id.length)}`
+        waveBottom4 = `F${missSpace.id.slice(1,missSpace.id.length)}`
+    }
+    else if(missSpace.id.slice(0,1) == `C`){
+        waveTop2 = `A${missSpace.id.slice(1,missSpace.id.length)}`
+        waveTop1 = `B${missSpace.id.slice(1,missSpace.id.length)}`
+        waveBottom1 = `D${missSpace.id.slice(1,missSpace.id.length)}`
+        waveBottom2 = `E${missSpace.id.slice(1,missSpace.id.length)}`
+        waveBottom3 = `F${missSpace.id.slice(1,missSpace.id.length)}`
+        waveBottom4 = `G${missSpace.id.slice(1,missSpace.id.length)}`
+    }
+    else if(missSpace.id.slice(0,1) == `D`){
+        waveTop3 = `A${missSpace.id.slice(1,missSpace.id.length)}`
+        waveTop2 = `B${missSpace.id.slice(1,missSpace.id.length)}`
+        waveTop1 = `C${missSpace.id.slice(1,missSpace.id.length)}`
+        waveBottom1 = `E${missSpace.id.slice(1,missSpace.id.length)}`
+        waveBottom2 = `F${missSpace.id.slice(1,missSpace.id.length)}`
+        waveBottom3 = `G${missSpace.id.slice(1,missSpace.id.length)}`
+        waveBottom4 = `H${missSpace.id.slice(1,missSpace.id.length)}`
+    }
+    else if(missSpace.id.slice(0,1) == `E`){
+        waveTop4 = `A${missSpace.id.slice(1,missSpace.id.length)}`
+        waveTop3 = `B${missSpace.id.slice(1,missSpace.id.length)}`
+        waveTop2 = `C${missSpace.id.slice(1,missSpace.id.length)}`
+        waveTop1 = `D${missSpace.id.slice(1,missSpace.id.length)}`
+        waveBottom1 = `F${missSpace.id.slice(1,missSpace.id.length)}`
+        waveBottom2 = `G${missSpace.id.slice(1,missSpace.id.length)}`
+        waveBottom3 = `H${missSpace.id.slice(1,missSpace.id.length)}`
+        waveBottom4 = `I${missSpace.id.slice(1,missSpace.id.length)}`
+    }
+    else if(missSpace.id.slice(0,1) == `F`){
+        waveTop4 = `B${missSpace.id.slice(1,missSpace.id.length)}`
+        waveTop3 = `C${missSpace.id.slice(1,missSpace.id.length)}`
+        waveTop2 = `D${missSpace.id.slice(1,missSpace.id.length)}`
+        waveTop1 = `E${missSpace.id.slice(1,missSpace.id.length)}`
+        waveBottom1 = `G${missSpace.id.slice(1,missSpace.id.length)}`
+        waveBottom2 = `H${missSpace.id.slice(1,missSpace.id.length)}`
+        waveBottom3 = `I${missSpace.id.slice(1,missSpace.id.length)}`
+        waveBottom4 = `J${missSpace.id.slice(1,missSpace.id.length)}`
+    }
+    else if(missSpace.id.slice(0,1) == `G`){
+        waveTop4 = `C${missSpace.id.slice(1,missSpace.id.length)}`
+        waveTop3 = `D${missSpace.id.slice(1,missSpace.id.length)}`
+        waveTop2 = `E${missSpace.id.slice(1,missSpace.id.length)}`
+        waveTop1 = `F${missSpace.id.slice(1,missSpace.id.length)}`
+        waveBottom1 = `H${missSpace.id.slice(1,missSpace.id.length)}`
+        waveBottom2 = `I${missSpace.id.slice(1,missSpace.id.length)}`
+        waveBottom3 = `J${missSpace.id.slice(1,missSpace.id.length)}`
+    }
+    else if(missSpace.id.slice(0,1) == `H`){
+        waveTop4 = `D${missSpace.id.slice(1,missSpace.id.length)}`
+        waveTop3 = `E${missSpace.id.slice(1,missSpace.id.length)}`
+        waveTop2 = `F${missSpace.id.slice(1,missSpace.id.length)}`
+        waveTop1 = `G${missSpace.id.slice(1,missSpace.id.length)}`
+        waveBottom1 = `I${missSpace.id.slice(1,missSpace.id.length)}`
+        waveBottom2 = `J${missSpace.id.slice(1,missSpace.id.length)}`
+    }
+    else if(missSpace.id.slice(0,1) == `I`){
+        waveTop4 = `E${missSpace.id.slice(1,missSpace.id.length)}`
+        waveTop3 = `F${missSpace.id.slice(1,missSpace.id.length)}`
+        waveTop2 = `G${missSpace.id.slice(1,missSpace.id.length)}`
+        waveTop1 = `H${missSpace.id.slice(1,missSpace.id.length)}`
+        waveBottom1 = `J${missSpace.id.slice(1,missSpace.id.length)}`
+
+    }
+    else if(missSpace.id.slice(0,1) == `J`){
+        waveTop4 = `F${missSpace.id.slice(1,missSpace.id.length)}`
+        waveTop3 = `G${missSpace.id.slice(1,missSpace.id.length)}`
+        waveTop2 = `H${missSpace.id.slice(1,missSpace.id.length)}`
+        waveTop1 = `I${missSpace.id.slice(1,missSpace.id.length)}`
+    }
+    
+
+
+    for(let letter in listOfLetters){
+        let entry = listOfLetters[letter]
+        if(entry == waveRight1 || entry == waveLeft1 || entry == waveTop1 || entry == waveBottom1){
+            probablityMap[entry]= Math.round((probablityMap[entry]-(probablityMap[entry]*0.3075))* 100) / 100
+        }
+        else if(entry == waveRight2 || entry == waveLeft2 || entry == waveTop2 || entry == waveBottom2){
+            probablityMap[entry]= Math.round((probablityMap[entry]-(probablityMap[entry]*0.176))* 100) / 100
+        }
+        else if(entry == waveRight3 || entry == waveLeft3 || entry == waveTop3 || entry == waveBottom3){
+            probablityMap[entry]= Math.round((probablityMap[entry]-(probablityMap[entry]*0.065))* 100) / 100
+        }
+        else if(entry == waveRight4 || entry == waveLeft4 || entry == waveTop4 || entry == waveBottom4){
+            probablityMap[entry]= Math.round((probablityMap[entry]+(probablityMap[entry]*0.0057))* 100) / 100
+        }
+
+
+
+        else{
+        probablityMap[entry] =  Math.round((probablityMap[entry]+(probablityMap[entry]*0.038))* 10) / 10
+        }
+
+}}
+
+function findMaxProbSpace(){
+    for(let letter in listOfLetters){
+    let entry = listOfLetters[letter]
+    let prob = probablityMap[entry]
+    if (prob > maxProb){
+        maxProb = prob;
+        maxProbSpace = entry;
+    }
+    }
+console.log(`${maxProbSpace} : ${maxProb}`)
+maxProb =0
+return maxProbSpace
+}
+
 let potentialTargets =[]
 
-function enemyTurn(){
-    console.log(potentialTargets)
-    let enemyChoice;
-    if(potentialTargets.length>0){
-        //let randChoiceFromStack = Math.floor(Math.random()*potentialTargets.length)
-        let test
-        while(test!=-1){
-            enemyChoice = potentialTargets.pop()
-            test = isPointAlreadyHit(enemyChoice)
+
+
+
+function checkLongShipSunk(){
+
+    let longshiphhitCounter=0;
+    for(let position in longShipFinalPositions){
+        if(document.getElementById(`${longShipFinalPositions[position]}`).attributes[5] != undefined){
+            longshiphhitCounter++
         }
-        previousEnemyChoices.push(`${enemyChoice}`)
+    }
+    console.log(longshiphhitCounter)
+    if(longshiphhitCounter == 5 && longshipalive == true){
+        prompt(`They sunk your carrier!`)
+        longshipalive = false;
+        potentialTargets = []
+        return true
     }
     else{
-    enemyChoice = chooseRandomGridPoint()
-    let test = isPointAlreadyHit(enemyChoice)
-    while(test!=-1){
-        enemyChoice = chooseRandomGridPoint()
-        test = previousEnemyChoices.indexOf(`${enemyChoice}`)
+        return false
     }
-    }
+}
 
-     previousEnemyChoices.push(`${enemyChoice}`)
-     enemyChoice = document.getElementById(`${enemyChoice}`)
+function checkfourLongShipSunk(){
+
+    let fourlongshiphhitCounter=0;
+    for(let position in fourlongShipFinalPositions){
+        if(document.getElementById(`${fourlongShipFinalPositions[position]}`).attributes[5] != undefined){
+            fourlongshiphhitCounter++
+        }
+    }
+    console.log(fourlongshiphhitCounter)
+    if(fourlongshiphhitCounter == 4 && fourlongshipalive == true){
+        prompt(`They sunk your BattleShip!`)
+        fourlongshipalive = false;
+        return true
+    }
+    else{
+        return false
+    }
+}
+
+function checkthree1LongShipSunk(){
+
+    let three1longshiphhitCounter=0;
+    for(let position in threelong1ShipFinalPositions){
+        if(document.getElementById(`${threelong1ShipFinalPositions[position]}`).attributes[5] != undefined){
+            three1longshiphhitCounter++
+        }
+    }
+    console.log(three1longshiphhitCounter)
+    if(three1longshiphhitCounter == 3 && three1longshipalive == true){
+        prompt(`They sunk your BattleShip!`)
+        three1longshipalive = false;
+        return true
+    }
+    else{
+        return false
+    }
+}
+
+function checkthree2LongShipSunk(){
+
+    let three2longshiphhitCounter=0;
+    for(let position in threelong2ShipFinalPositions){
+        if(document.getElementById(`${threelong2ShipFinalPositions[position]}`).attributes[5] != undefined){
+            three2longshiphhitCounter++
+        }
+    }
+    console.log(three2longshiphhitCounter)
+    if(three2longshiphhitCounter == 3 && three2longshipalive == true){
+        prompt(`They sunk your BattleShip!`)
+        three2longshipalive = false;
+        return true
+    }
+    else{
+        return false
+    }
+}
+
+
+function checktwo2LongShipSunk(){
+
+    let twolongshiphhitCounter=0;
+    for(let position in twolongShipFinalPositions){
+        if(document.getElementById(`${twolongShipFinalPositions[position]}`).attributes[5] != undefined){
+            twolongshiphhitCounter++
+        }
+    }
+    console.log(twolongshiphhitCounter)
+    if(twolongshiphhitCounter == 2 && twolongshipalive == true){
+        prompt(`They sunk your BattleShip!`)
+        twolongshipalive = false;
+        return true
+    }
+    else{
+        return false
+    }
+}
+
+
+
+
+
+function enemyTurn(){
+
+
+    let enemyChoice;
+    if(potentialTargets.length>0){
+        enemyChoice = potentialTargets.pop()
+    }
+    else{
+        enemyChoice = findMaxProbSpace()
+    }
+    previousEnemyChoices.push(`${enemyChoice}`)
+    
+    enemyChoice = document.getElementById(`${enemyChoice}`)
 
     if(enemyChoice.attributes[4].value == `false`){
         enemyChoice.style.opacity = 0;
         enemyMissMessage();
+        updateProbMapOnMiss(enemyChoice);
         setTimeout(yourTurnMessage,800)
         
     }
@@ -4518,10 +5136,27 @@ function enemyTurn(){
         // need to add all of the grid points around it, could write a function here
 
         findPotentialTargets(enemyChoice)
-
+        probablityMap[enemyChoice.id] = 0
         enemyChoice.style.backgroundColor= `red`;
         enemyChoice.setAttribute(`shiptype`, `hit`)
         enemyHitMessage()
+
+        if(checkLongShipSunk() == true){
+            potentialTargets=[]
+        }
+        else if(checkfourLongShipSunk() == true){
+            potentialTargets=[]
+        }
+        else if(checkthree1LongShipSunk() == true){
+            potentialTargets=[]
+        }
+        else if(checkthree2LongShipSunk() == true){
+            potentialTargets=[]
+        }
+        else if(checktwo2LongShipSunk() == true){
+            potentialTargets=[]
+        }
+
         checkFriendlyShips()
         setTimeout(enemyTurn,800)
     
