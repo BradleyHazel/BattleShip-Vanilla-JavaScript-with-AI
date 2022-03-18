@@ -4724,9 +4724,13 @@ function isPointAlreadyHit(enemyChoice){
     return test
 }
 
+let firstHit;
+let firstTop;
+let firstBottom;
+let firstLeft;
+let firstRight;
 
 function findPotentialTargets (enemyChoice){
-
 
     let hitPosition = enemyChoice.id
 
@@ -4813,38 +4817,144 @@ function findPotentialTargets (enemyChoice){
     }
     let preList =[]
 
+    if(potentialTargets.length>0){
+        // where the 2nd hit was?
+        if(hitPosition == firstTop){
+            if(leftPosition){
+                if(isPointAlreadyHit(leftPosition)==-1){
+                    potentialTargets.push(leftPosition)
+                }
+            }
+            if(rightPosition){
+                if(isPointAlreadyHit(rightPosition)==-1){
+                    potentialTargets.push(rightPosition)
+                }
+            }
+            if(bottomPosition){
+                if(isPointAlreadyHit(bottomPosition)==-1){
+                    potentialTargets.push(bottomPosition)
+                }
+            }
+            if(topPosition){
+                if(isPointAlreadyHit(topPosition)==-1){
+                        potentialTargets.push(topPosition)
+                    }
+                }
+        }
+
+        else if(hitPosition == firstBottom){
+            if(leftPosition){
+                if(isPointAlreadyHit(leftPosition)==-1){
+                    potentialTargets.push(leftPosition)
+                }
+            }
+            if(rightPosition){
+                if(isPointAlreadyHit(rightPosition)==-1){
+                    potentialTargets.push(rightPosition)
+                }
+            }
+            if(topPosition){
+                if(isPointAlreadyHit(topPosition)==-1){
+                        potentialTargets.push(topPosition)
+                    }
+                }
+            if(bottomPosition){
+                    if(isPointAlreadyHit(bottomPosition)==-1){
+                        potentialTargets.push(bottomPosition)
+                    }
+                }
+        }
+        else if(hitPosition == firstRight){
+            if(topPosition){
+                if(isPointAlreadyHit(topPosition)==-1){
+                        potentialTargets.push(topPosition)
+                    }
+                }
+            if(bottomPosition){
+                if(isPointAlreadyHit(bottomPosition)==-1){
+                    potentialTargets.push(bottomPosition)
+                }
+            }
+            if(leftPosition){
+                if(isPointAlreadyHit(leftPosition)==-1){
+                    potentialTargets.push(leftPosition)
+                }
+            }
+            if(rightPosition){
+                if(isPointAlreadyHit(rightPosition)==-1){
+                    potentialTargets.push(rightPosition)
+                }       
+        }
+    }
+        else if(hitPosition == firstLeft){
+
+
+            if(topPosition){
+                if(isPointAlreadyHit(topPosition)==-1){
+                        potentialTargets.push(topPosition)
+                    }
+                }
+            if(bottomPosition){
+                if(isPointAlreadyHit(bottomPosition)==-1){
+                    potentialTargets.push(bottomPosition)
+                }
+            }
+            if(rightPosition){
+                if(isPointAlreadyHit(rightPosition)==-1){
+                    potentialTargets.push(rightPosition)
+                }       
+        }
+            if(leftPosition){
+                if(isPointAlreadyHit(leftPosition)==-1){
+                    potentialTargets.push(leftPosition)
+                }
+            } 
+        }
+        else{
+
+        }
+        
+
+    }
+    else{
+        firstHit=hitPosition
     if(bottomPosition){
         if(isPointAlreadyHit(bottomPosition)==-1){
             preList.push(bottomPosition)
+            firstBottom = bottomPosition;
         }
     }
     if(topPosition){
         if(isPointAlreadyHit(topPosition)==-1){
             preList.push(topPosition)
+            firstTop = topPosition
         }
     }
     if(leftPosition){
         if(isPointAlreadyHit(leftPosition)==-1){
             preList.push(leftPosition)
+            firstLeft = leftPosition;
         }
     }
     if(rightPosition){
         if(isPointAlreadyHit(rightPosition)==-1){
             preList.push(rightPosition)
+            firstRight = rightPosition;
         }
     }
+   
     while(preList.length>0){
         let randoNum = Math.floor(Math.random()*preList.length)
         potentialTargets.push(preList[randoNum])
         preList.splice(randoNum, 1);
     }
-
+    }
     console.log(topPosition)
     console.log(rightPosition)
     console.log(bottomPosition)
     console.log(leftPosition)
+    }
 
-}
 
 
 
@@ -5058,7 +5168,7 @@ function checkthree1LongShipSunk(){
     }
     console.log(three1longshiphhitCounter)
     if(three1longshiphhitCounter == 3 && three1longshipalive == true){
-        prompt(`They sunk your BattleShip!`)
+        prompt(`They sunk your Cruiser!`)
         three1longshipalive = false;
         return true
     }
@@ -5077,7 +5187,7 @@ function checkthree2LongShipSunk(){
     }
     console.log(three2longshiphhitCounter)
     if(three2longshiphhitCounter == 3 && three2longshipalive == true){
-        prompt(`They sunk your BattleShip!`)
+        prompt(`They sunk your Stealth Ship!`)
         three2longshipalive = false;
         return true
     }
@@ -5097,7 +5207,7 @@ function checktwo2LongShipSunk(){
     }
     console.log(twolongshiphhitCounter)
     if(twolongshiphhitCounter == 2 && twolongshipalive == true){
-        prompt(`They sunk your BattleShip!`)
+        prompt(`They sunk your Destroyer!`)
         twolongshipalive = false;
         return true
     }
@@ -5106,6 +5216,11 @@ function checktwo2LongShipSunk(){
     }
 }
 
+
+console.log(`Stealth: `+stealthCount)
+console.log(`Carrier: `+carrierCount)
+console.log(`Cruiser: `+cruiserCount)
+console.log(`Battleship: `+battleshipCount)
 
 
 
