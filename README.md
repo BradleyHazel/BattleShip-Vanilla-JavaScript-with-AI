@@ -1,5 +1,7 @@
 # BattleShip
 
+https://bradleyhazel.github.io/
+
 A vanilla JavaScript version of BattleShip with 
 a simplified probablity map based AI. The user can drag and 
 drop the ships onto their field, start the game to randomly
