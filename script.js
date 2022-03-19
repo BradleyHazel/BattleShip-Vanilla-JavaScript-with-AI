@@ -1,24 +1,241 @@
-// dragstart_handler function and event listener code taken from https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API
-// https://www.w3schools.com/html/html5_draganddrop.asp
-// https://sebhastian.com/javascript-rotate-images/#:~:text=When%20you%20need%20to%20rotate,element%20you%20want%20to%20rotate.&text=To%20rotate%20the%20image%2C%20you%20can%20select%20the%20element%20using%20document.
-// typewriter effect https://www.w3schools.com/howto/howto_js_typewriter.asp
-// https://www.w3schools.com/js/js_timing.asp
-// for the AI portion https://www.datagenetics.com/bloHuntg/december32011/index.html AND https://cliambrown.com/battleship/ 
-
 let smallShip = document.getElementById("smallShip");
 let bigShip = document.getElementById("biggestShip"); 
 let fourLongShip = document.getElementById("fourLongShip");
 let threeShipOne =  document.getElementById("threeShipOne");
 let threeShipTwo =  document.getElementById("threeShipTwo");
 
+let theirA1 = document.getElementById("theirA1");
+let theirA2 = document.getElementById("theirA2");
+let theirA3 = document.getElementById("theirA3");
+let theirA4 = document.getElementById("theirA4");
+let theirA5 = document.getElementById("theirA5");
+let theirA6 = document.getElementById("theirA6");
+let theirA7 = document.getElementById("theirA7");
+let theirA8 = document.getElementById("theirA8");
+let theirA9 = document.getElementById("theirA9");
+let theirA10 = document.getElementById("theirA10");
+let theirB1 = document.getElementById("theirB1");
+let theirB2 = document.getElementById("theirB2");
+let theirB3 = document.getElementById("theirB3");
+let theirB4 = document.getElementById("theirB4");
+let theirB5 = document.getElementById("theirB5");
+let theirB6 = document.getElementById("theirB6");
+let theirB7 = document.getElementById("theirB7");
+let theirB8 = document.getElementById("theirB8");
+let theirB9 = document.getElementById("theirB9");
+let theirB10 = document.getElementById("theirB10");
+let theirC1 = document.getElementById("theirC1");
+let theirC2 = document.getElementById("theirC2");
+let theirC3 = document.getElementById("theirC3");
+let theirC4 = document.getElementById("theirC4");
+let theirC5 = document.getElementById("theirC5");
+let theirC6 = document.getElementById("theirC6");
+let theirC7 = document.getElementById("theirC7");
+let theirC8 = document.getElementById("theirC8");
+let theirC9 = document.getElementById("theirC9");
+let theirC10 = document.getElementById("theirC10");
+let theirD1 = document.getElementById("theirD1");
+let theirD2 = document.getElementById("theirD2");
+let theirD3 = document.getElementById("theirD3");
+let theirD4 = document.getElementById("theirD4");
+let theirD5 = document.getElementById("theirD5");
+let theirD6 = document.getElementById("theirD6");
+let theirD7 = document.getElementById("theirD7");
+let theirD8 = document.getElementById("theirD8");
+let theirD9 = document.getElementById("theirD9");
+let theirD10 = document.getElementById("theirD10");
+let theirE1 = document.getElementById("theirE1");
+let theirE2 = document.getElementById("theirE2");
+let theirE3 = document.getElementById("theirE3");
+let theirE4 = document.getElementById("theirE4");
+let theirE5 = document.getElementById("theirE5");
+let theirE6 = document.getElementById("theirE6");
+let theirE7 = document.getElementById("theirE7");
+let theirE8 = document.getElementById("theirE8");
+let theirE9 = document.getElementById("theirE9");
+let theirE10 = document.getElementById("theirE10");
+let theirF1 = document.getElementById("theirF1");
+let theirF2 = document.getElementById("theirF2");
+let theirF3 = document.getElementById("theirF3");
+let theirF4 = document.getElementById("theirF4");
+let theirF5 = document.getElementById("theirF5");
+let theirF6 = document.getElementById("theirF6");
+let theirF7 = document.getElementById("theirF7");
+let theirF8 = document.getElementById("theirF8");
+let theirF9 = document.getElementById("theirF9");
+let theirF10 = document.getElementById("theirF10");
+let theirG1 = document.getElementById("theirG1");
+let theirG2 = document.getElementById("theirG2");
+let theirG3 = document.getElementById("theirG3");
+let theirG4 = document.getElementById("theirG4");
+let theirG5 = document.getElementById("theirG5");
+let theirG6 = document.getElementById("theirG6");
+let theirG7 = document.getElementById("theirG7");
+let theirG8 = document.getElementById("theirG8");
+let theirG9 = document.getElementById("theirG9");
+let theirG10 = document.getElementById("theirG10");
+let theirH1 = document.getElementById("theirH1");
+let theirH2 = document.getElementById("theirH2");
+let theirH3 = document.getElementById("theirH3");
+let theirH4 = document.getElementById("theirH4");
+let theirH5 = document.getElementById("theirH5");
+let theirH6 = document.getElementById("theirH6");
+let theirH7 = document.getElementById("theirH7");
+let theirH8 = document.getElementById("theirH8");
+let theirH9 = document.getElementById("theirH9");
+let theirH10 = document.getElementById("theirH10");
+let theirI1 = document.getElementById("theirI1");
+let theirI2 = document.getElementById("theirI2");
+let theirI3 = document.getElementById("theirI3");
+let theirI4 = document.getElementById("theirI4");
+let theirI5 = document.getElementById("theirI5");
+let theirI6 = document.getElementById("theirI6");
+let theirI7 = document.getElementById("theirI7");
+let theirI8 = document.getElementById("theirI8");
+let theirI9 = document.getElementById("theirI9");
+let theirI10 = document.getElementById("theirI10");
+let theirJ1 = document.getElementById("theirJ1");
+let theirJ2 = document.getElementById("theirJ2");
+let theirJ3 = document.getElementById("theirJ3");
+let theirJ4 = document.getElementById("theirJ4");
+let theirJ5 = document.getElementById("theirJ5");
+let theirJ6 = document.getElementById("theirJ6");
+let theirJ7 = document.getElementById("theirJ7");
+let theirJ8 = document.getElementById("theirJ8");
+let theirJ9 = document.getElementById("theirJ9");
+let theirJ10 = document.getElementById("theirJ10");
+
+let ourA1 = document.getElementById("A1");
+let ourA2 = document.getElementById("A2");
+let ourA3 = document.getElementById("A3");
+let ourA4 = document.getElementById("A4");
+let ourA5 = document.getElementById("A5");
+let ourA6 = document.getElementById("A6");
+let ourA7 = document.getElementById("A7");
+let ourA8 = document.getElementById("A8");
+let ourA9 = document.getElementById("A9");
+let ourA10 = document.getElementById("A10");
+let ourB1 = document.getElementById("B1");
+let ourB2 = document.getElementById("B2");
+let ourB3 = document.getElementById("B3");
+let ourB4 = document.getElementById("B4");
+let ourB5 = document.getElementById("B5");
+let ourB6 = document.getElementById("B6");
+let ourB7 = document.getElementById("B7");
+let ourB8 = document.getElementById("B8");
+let ourB9 = document.getElementById("B9");
+let ourB10 = document.getElementById("B10");
+let ourC1 = document.getElementById("C1");
+let ourC2 = document.getElementById("C2");
+let ourC3 = document.getElementById("C3");
+let ourC4 = document.getElementById("C4");
+let ourC5 = document.getElementById("C5");
+let ourC6 = document.getElementById("C6");
+let ourC7 = document.getElementById("C7");
+let ourC8 = document.getElementById("C8");
+let ourC9 = document.getElementById("C9");
+let ourC10 = document.getElementById("C10");
+let ourD1 = document.getElementById("D1");
+let ourD2 = document.getElementById("D2");
+let ourD3 = document.getElementById("D3");
+let ourD4 = document.getElementById("D4");
+let ourD5 = document.getElementById("D5");
+let ourD6 = document.getElementById("D6");
+let ourD7 = document.getElementById("D7");
+let ourD8 = document.getElementById("D8");
+let ourD9 = document.getElementById("D9");
+let ourD10 = document.getElementById("D10");
+let ourE1 = document.getElementById("E1");
+let ourE2 = document.getElementById("E2");
+let ourE3 = document.getElementById("E3");
+let ourE4 = document.getElementById("E4");
+let ourE5 = document.getElementById("E5");
+let ourE6 = document.getElementById("E6");
+let ourE7 = document.getElementById("E7");
+let ourE8 = document.getElementById("E8");
+let ourE9 = document.getElementById("E9");
+let ourE10 = document.getElementById("E10");
+let ourF1 = document.getElementById("F1");
+let ourF2 = document.getElementById("F2");
+let ourF3 = document.getElementById("F3");
+let ourF4 = document.getElementById("F4");
+let ourF5 = document.getElementById("F5");
+let ourF6 = document.getElementById("F6");
+let ourF7 = document.getElementById("F7");
+let ourF8 = document.getElementById("F8");
+let ourF9 = document.getElementById("F9");
+let ourF10 = document.getElementById("F10");
+let ourG1 = document.getElementById("G1");
+let ourG2 = document.getElementById("G2");
+let ourG3 = document.getElementById("G3");
+let ourG4 = document.getElementById("G4");
+let ourG5 = document.getElementById("G5");
+let ourG6 = document.getElementById("G6");
+let ourG7 = document.getElementById("G7");
+let ourG8 = document.getElementById("G8");
+let ourG9 = document.getElementById("G9");
+let ourG10 = document.getElementById("G10");
+let ourH1 = document.getElementById("H1");
+let ourH2 = document.getElementById("H2");
+let ourH3 = document.getElementById("H3");
+let ourH4 = document.getElementById("H4");
+let ourH5 = document.getElementById("H5");
+let ourH6 = document.getElementById("H6");
+let ourH7 = document.getElementById("H7");
+let ourH8 = document.getElementById("H8");
+let ourH9 = document.getElementById("H9");
+let ourH10 = document.getElementById("H10");
+let ourI1 = document.getElementById("I1");
+let ourI2 = document.getElementById("I2");
+let ourI3 = document.getElementById("I3");
+let ourI4 = document.getElementById("I4");
+let ourI5 = document.getElementById("I5");
+let ourI6 = document.getElementById("I6");
+let ourI7 = document.getElementById("I7");
+let ourI8 = document.getElementById("I8");
+let ourI9 = document.getElementById("I9");
+let ourI10 = document.getElementById("I10");
+let ourJ1 = document.getElementById("J1");
+let ourJ2 = document.getElementById("J2");
+let ourJ3 = document.getElementById("J3");
+let ourJ4 = document.getElementById("J4");
+let ourJ5 = document.getElementById("J5");
+let ourJ6 = document.getElementById("J6");
+let ourJ7 = document.getElementById("J7");
+let ourJ8 = document.getElementById("J8");
+let ourJ9 = document.getElementById("J9");
+let ourJ10 = document.getElementById("J10");
+
+let destroyerCount;
+let destroyerEventDone = false;
+
+let stealthCount;
+let stealthEventDone = false;
+
+let carrierCount;
+let carrierEventDone = false;
+
+let cruiserCount;
+let cruiserEventDone = false;
+
+let battleshipCount;
+let battleshipEventDone = false;
+
+let longshipalive = true;
+let fourlongshipalive = true;
+let three1longshipalive = true;
+let three2longshipalive = true;
+let twolongshipalive = true;
+
 let useTyperWriter = false
 let gameStarted = false
 let gameOver = false
 let gameOverText;
-
 let lastShipLocations=[];
 let round = 0;
 let shipcounter = 0
+
+document.getElementById('startbutton').style.visibility = 'hidden';
 
 let reducedListOfLetters = 
 [`A2`,`A4`,`A6`,`A8`,`A10`,
@@ -45,21 +262,27 @@ let probablityMap = {
     I1:11.5, I2:14.3, I3:16.6, I4:17.8, I5:18.4, I6:18.4, I7:17.8, I8:16.6, I9:14.3, I10:11.5,
     J1:8.0,  J2:11.5, J3:14.3, J4:15.9, J5:16.7, J6:16.7, J7:15.9, J8:14.3, J9:11.5, J10:8.0
 }
-let listOfLetters = [`A1`,`A2`,`A3`,`A4`,`A5`,`A6`,`A7`,`A8`,`A9`,`A10`,
-                     `B1`,`B2`,`B3`,`B4`,`B5`,`B6`,`B7`,`B8`,`B9`,`B10`,
-                     `C1`,`C2`,`C3`,`C4`,`C5`,`C6`,`C7`,`C8`,`C9`,`C10`,
-                     `D1`,`D2`,`D3`,`D4`,`D5`,`D6`,`D7`,`D8`,`D9`,`D10`,
-                     `E1`,`E2`,`E3`,`E4`,`E5`,`E6`,`E7`,`E8`,`E9`,`E10`,
-                     `F1`,`F2`,`F3`,`F4`,`F5`,`F6`,`F7`,`F8`,`F9`,`F10`,
-                     `G1`,`G2`,`G3`,`G4`,`G5`,`G6`,`G7`,`G8`,`G9`,`G10`,
-                     `H1`,`H2`,`H3`,`H4`,`H5`,`H6`,`H7`,`H8`,`H9`,`H10`,
-                     `I1`,`I2`,`I3`,`I4`,`I5`,`I6`,`I7`,`I8`,`I9`,`I10`,
-                     `J1`,`J2`,`J3`,`J4`,`J5`,`J6`,`J7`,`J8`,`J9`,`J10`,
-                    ]
+let listOfLetters = 
+    [`A1`,`A2`,`A3`,`A4`,`A5`,`A6`,`A7`,`A8`,`A9`,`A10`,
+     `B1`,`B2`,`B3`,`B4`,`B5`,`B6`,`B7`,`B8`,`B9`,`B10`,
+     `C1`,`C2`,`C3`,`C4`,`C5`,`C6`,`C7`,`C8`,`C9`,`C10`,
+     `D1`,`D2`,`D3`,`D4`,`D5`,`D6`,`D7`,`D8`,`D9`,`D10`,
+     `E1`,`E2`,`E3`,`E4`,`E5`,`E6`,`E7`,`E8`,`E9`,`E10`,
+     `F1`,`F2`,`F3`,`F4`,`F5`,`F6`,`F7`,`F8`,`F9`,`F10`,
+     `G1`,`G2`,`G3`,`G4`,`G5`,`G6`,`G7`,`G8`,`G9`,`G10`,
+     `H1`,`H2`,`H3`,`H4`,`H5`,`H6`,`H7`,`H8`,`H9`,`H10`,
+     `I1`,`I2`,`I3`,`I4`,`I5`,`I6`,`I7`,`I8`,`I9`,`I10`,
+     `J1`,`J2`,`J3`,`J4`,`J5`,`J6`,`J7`,`J8`,`J9`,`J10`,
+    ]
 
-                    let maxProb = 0;
-                    let maxProbSpace;
+let maxProb = 0;
+let maxProbSpace;
 
+let longShipFinalPositions=[];
+let fourlongShipFinalPositions=[];
+let threelong1ShipFinalPositions=[];
+let threelong2ShipFinalPositions=[];
+let twolongShipFinalPositions=[];
 
 function reduceby20percent (){
     for(let letter in reducedListOfLetters){
@@ -73,11 +296,8 @@ function increaseby20percent (){
             let entry = reducedListOfLetters[letter]
                 probablityMap[entry]= Math.round((probablityMap[entry]+(probablityMap[entry]*0.20))* 100) / 100
         }
-}
-                            
-
+}                         
 function restartGame(){ location.reload(); }
-
 function toggleTypeWriter(){
     if(useTyperWriter){
     document.getElementById("toggle").innerHTML = "TypeWritter Effect: Off"
@@ -88,12 +308,6 @@ function toggleTypeWriter(){
         useTyperWriter = true
     }
 }
-
-
-document.getElementById('startbutton').style.visibility = 'hidden';
-
-
-// fancy effect here
 
 var ivariable = 0;
 var animatedText = 'Place your ships by dragging and dropping them onto the battlefield. Double click to rotate a ship.'; /* The text */
@@ -113,13 +327,8 @@ function typeWriter() {
 }
 typeWriter()
 
-
 // allowing the drop to happen on divs by preventing default on the drag over
-function allowDrop(ev) {
-    // typicall does not allow drop so we prevent default
-    ev.preventDefault();
-  }
-
+function allowDrop(ev) { ev.preventDefault(); }
 function drag(ev) {
     // setting the target Id on drag datatransfer
     ev.dataTransfer.setData("text", ev.target.id);
@@ -3648,141 +3857,23 @@ function rotateSmallestShip (){
     smallShip.setAttribute(`rotatedPosition`,rotatedPosition);
     }
 
-let theirA1 = document.getElementById("theirA1");
-let theirA2 = document.getElementById("theirA2");
-let theirA3 = document.getElementById("theirA3");
-let theirA4 = document.getElementById("theirA4");
-let theirA5 = document.getElementById("theirA5");
-let theirA6 = document.getElementById("theirA6");
-let theirA7 = document.getElementById("theirA7");
-let theirA8 = document.getElementById("theirA8");
-let theirA9 = document.getElementById("theirA9");
-let theirA10 = document.getElementById("theirA10");
-
-let theirB1 = document.getElementById("theirB1");
-let theirB2 = document.getElementById("theirB2");
-let theirB3 = document.getElementById("theirB3");
-let theirB4 = document.getElementById("theirB4");
-let theirB5 = document.getElementById("theirB5");
-let theirB6 = document.getElementById("theirB6");
-let theirB7 = document.getElementById("theirB7");
-let theirB8 = document.getElementById("theirB8");
-let theirB9 = document.getElementById("theirB9");
-let theirB10 = document.getElementById("theirB10");
-
-let theirC1 = document.getElementById("theirC1");
-let theirC2 = document.getElementById("theirC2");
-let theirC3 = document.getElementById("theirC3");
-let theirC4 = document.getElementById("theirC4");
-let theirC5 = document.getElementById("theirC5");
-let theirC6 = document.getElementById("theirC6");
-let theirC7 = document.getElementById("theirC7");
-let theirC8 = document.getElementById("theirC8");
-let theirC9 = document.getElementById("theirC9");
-let theirC10 = document.getElementById("theirC10");
-
-let theirD1 = document.getElementById("theirD1");
-let theirD2 = document.getElementById("theirD2");
-let theirD3 = document.getElementById("theirD3");
-let theirD4 = document.getElementById("theirD4");
-let theirD5 = document.getElementById("theirD5");
-let theirD6 = document.getElementById("theirD6");
-let theirD7 = document.getElementById("theirD7");
-let theirD8 = document.getElementById("theirD8");
-let theirD9 = document.getElementById("theirD9");
-let theirD10 = document.getElementById("theirD10");
-
-let theirE1 = document.getElementById("theirE1");
-let theirE2 = document.getElementById("theirE2");
-let theirE3 = document.getElementById("theirE3");
-let theirE4 = document.getElementById("theirE4");
-let theirE5 = document.getElementById("theirE5");
-let theirE6 = document.getElementById("theirE6");
-let theirE7 = document.getElementById("theirE7");
-let theirE8 = document.getElementById("theirE8");
-let theirE9 = document.getElementById("theirE9");
-let theirE10 = document.getElementById("theirE10");
-
-let theirF1 = document.getElementById("theirF1");
-let theirF2 = document.getElementById("theirF2");
-let theirF3 = document.getElementById("theirF3");
-let theirF4 = document.getElementById("theirF4");
-let theirF5 = document.getElementById("theirF5");
-let theirF6 = document.getElementById("theirF6");
-let theirF7 = document.getElementById("theirF7");
-let theirF8 = document.getElementById("theirF8");
-let theirF9 = document.getElementById("theirF9");
-let theirF10 = document.getElementById("theirF10");
-
-let theirG1 = document.getElementById("theirG1");
-let theirG2 = document.getElementById("theirG2");
-let theirG3 = document.getElementById("theirG3");
-let theirG4 = document.getElementById("theirG4");
-let theirG5 = document.getElementById("theirG5");
-let theirG6 = document.getElementById("theirG6");
-let theirG7 = document.getElementById("theirG7");
-let theirG8 = document.getElementById("theirG8");
-let theirG9 = document.getElementById("theirG9");
-let theirG10 = document.getElementById("theirG10");
-
-let theirH1 = document.getElementById("theirH1");
-let theirH2 = document.getElementById("theirH2");
-let theirH3 = document.getElementById("theirH3");
-let theirH4 = document.getElementById("theirH4");
-let theirH5 = document.getElementById("theirH5");
-let theirH6 = document.getElementById("theirH6");
-let theirH7 = document.getElementById("theirH7");
-let theirH8 = document.getElementById("theirH8");
-let theirH9 = document.getElementById("theirH9");
-let theirH10 = document.getElementById("theirH10");
-
-let theirI1 = document.getElementById("theirI1");
-let theirI2 = document.getElementById("theirI2");
-let theirI3 = document.getElementById("theirI3");
-let theirI4 = document.getElementById("theirI4");
-let theirI5 = document.getElementById("theirI5");
-let theirI6 = document.getElementById("theirI6");
-let theirI7 = document.getElementById("theirI7");
-let theirI8 = document.getElementById("theirI8");
-let theirI9 = document.getElementById("theirI9");
-let theirI10 = document.getElementById("theirI10");
-
-let theirJ1 = document.getElementById("theirJ1");
-let theirJ2 = document.getElementById("theirJ2");
-let theirJ3 = document.getElementById("theirJ3");
-let theirJ4 = document.getElementById("theirJ4");
-let theirJ5 = document.getElementById("theirJ5");
-let theirJ6 = document.getElementById("theirJ6");
-let theirJ7 = document.getElementById("theirJ7");
-let theirJ8 = document.getElementById("theirJ8");
-let theirJ9 = document.getElementById("theirJ9");
-let theirJ10 = document.getElementById("theirJ10");
-
-
-
-
-
-
 function generateEnemyMap(){
     // set the five ships up
-    // lets start with the big ship
     chooseEnemyLongShipLocation()
     chooseEnemyFourShipLocation()
     chooseEnemyThreeShipLocation()
     chooseEnemyThreeShipLocation()
     chooseEnemyTwoShipLocation()
-  
 }
 
 function chooseEnemyTwoShipLocation(){
     // getting a random start point for the random grid generator
-    let start ;
-    let randint ;
+    let start;
+    let randint;
     let TwoShipFirst = start;
-    let TwoShipSecond ;
-    
+    let TwoShipSecond;
     let orient;
-    let clearPath = false
+    let clearPath = false;
    while(clearPath == false){
 
     start = chooseRandomGridPoint();
@@ -3871,11 +3962,11 @@ function chooseEnemyTwoShipLocation(){
 
 function chooseEnemyThreeShipLocation(){
     // getting a random start point for the random grid generator
-    let start ;
-    let randint ;
+    let start;
+    let randint;
     let ThreeShipFirst = start;
-    let ThreeShipSecond ;
-    let ThreeShipThird ;
+    let ThreeShipSecond;
+    let ThreeShipThird;
     
     let orient;
     let clearPath = false
@@ -3993,12 +4084,12 @@ function chooseEnemyThreeShipLocation(){
 
 function chooseEnemyFourShipLocation(){
     // getting a random start point for the random grid generator
-    let start ;
-    let randint ;
+    let start;
+    let randint;
     let FourShipFirst = start;
-    let FourShipSecond ;
-    let FourShipThird ;
-    let FourShipFourth ;
+    let FourShipSecond;
+    let FourShipThird;
+    let FourShipFourth;
     
     let orient;
     let clearPath = false
@@ -4119,13 +4210,11 @@ function chooseEnemyLongShipLocation(){
     let start = chooseRandomGridPoint();    
     let randint = Math.ceil(Math.random()*2);
     let orient;
-
-
     let bigShipFirst = start;
-        let bigShipSecond ;
-        let bigShipThird ;
-        let bigShipFourth ;
-        let bigShipFifth ;
+    let bigShipSecond;
+    let bigShipThird;
+    let bigShipFourth;
+    let bigShipFifth;
 
     if(randint == 1){
         orient = `vertical`
@@ -4232,14 +4321,7 @@ function chooseRandomGridPoint(){
     return `${randLetter}${randNum}`
 }
 
-let longShipFinalPositions=[];
-let fourlongShipFinalPositions=[];
-let threelong1ShipFinalPositions=[];
-let threelong2ShipFinalPositions=[];
-let twolongShipFinalPositions=[];
-
 function findShipsOnceTheyAreStarted(){
-
     let ourShipList = 
     [
      ourA1, ourA2, ourA3, ourA4, ourA5,
@@ -4291,7 +4373,6 @@ function findShipsOnceTheyAreStarted(){
     let twolongship1;
     let twolongship2;
  
-    
     for(let shipps in shipCenters){
         let imgsrc = shipCenters[shipps].attributes.src.nodeValue
         let orientation = shipCenters[shipps].attributes.shiporientation.value
@@ -4542,16 +4623,6 @@ function findShipsOnceTheyAreStarted(){
     console.log(threelong2ShipFinalPositions)
     console.log(twolongShipFinalPositions)
 }
-let longshipalive = true;
-let fourlongshipalive = true;
-let three1longshipalive = true;
-let three2longshipalive = true;
-let twolongshipalive = true;
-
-
-
-
-
 
 function startGame(){
 
@@ -7390,25 +7461,9 @@ checkEnemyShips()
 gameStarted = true
 }
 
-
-let destroyerCount;
-let destroyerEventDone = false;
-
-let stealthCount;
-let stealthEventDone = false;
-
-let carrierCount;
-let carrierEventDone = false;
-
-let cruiserCount;
-let cruiserEventDone = false;
-
-let battleshipCount;
-let battleshipEventDone = false;
-
-// on each click check the enemy ships that have been exploded
-// loop through the enemy divs attributes first
 function checkEnemyShips(){
+    // on each click check the enemy ships that have been exploded
+    // loop through the enemy divs attributes first
     let destroyerCounter =0;
     let stealthCounter =0;
     let carrierCounter =0;
@@ -7440,7 +7495,6 @@ function checkEnemyShips(){
     ]
     for(let spot in enemyShipList){
         if(enemyShipList[spot].attributes[3]){
-            console.log(enemyShipList[spot].attributes[3].value)
             if(enemyShipList[spot].attributes[3].value == `destroyer`){
                 destroyerCounter++
             }
@@ -7463,12 +7517,6 @@ function checkEnemyShips(){
     carrierCount = carrierCounter;
     cruiserCount = cruiserCounter
     battleshipCount = battleshipCounter;
-    console.log(`Destroyers: `+destroyerCount)
-    console.log(`Stealth: `+stealthCount)
-    console.log(`Carrier: `+carrierCount)
-    console.log(`Cruiser: `+cruiserCount)
-    console.log(`Battleship: `+battleshipCount)
-
     if(destroyerCount ==0 && destroyerEventDone == false){
         alert(`You sunk the Destroyer!`)
         destroyerEventDone = true
@@ -7499,126 +7547,9 @@ function checkEnemyShips(){
     }
 }
 
-// after the user clicks on a square it's the enemys turn
-// display that it's the enemys turn 
-
-
-
-let ourA1 = document.getElementById("A1");
-let ourA2 = document.getElementById("A2");
-let ourA3 = document.getElementById("A3");
-let ourA4 = document.getElementById("A4");
-let ourA5 = document.getElementById("A5");
-let ourA6 = document.getElementById("A6");
-let ourA7 = document.getElementById("A7");
-let ourA8 = document.getElementById("A8");
-let ourA9 = document.getElementById("A9");
-let ourA10 = document.getElementById("A10");
-
-let ourB1 = document.getElementById("B1");
-let ourB2 = document.getElementById("B2");
-let ourB3 = document.getElementById("B3");
-let ourB4 = document.getElementById("B4");
-let ourB5 = document.getElementById("B5");
-let ourB6 = document.getElementById("B6");
-let ourB7 = document.getElementById("B7");
-let ourB8 = document.getElementById("B8");
-let ourB9 = document.getElementById("B9");
-let ourB10 = document.getElementById("B10");
-
-let ourC1 = document.getElementById("C1");
-let ourC2 = document.getElementById("C2");
-let ourC3 = document.getElementById("C3");
-let ourC4 = document.getElementById("C4");
-let ourC5 = document.getElementById("C5");
-let ourC6 = document.getElementById("C6");
-let ourC7 = document.getElementById("C7");
-let ourC8 = document.getElementById("C8");
-let ourC9 = document.getElementById("C9");
-let ourC10 = document.getElementById("C10");
-
-let ourD1 = document.getElementById("D1");
-let ourD2 = document.getElementById("D2");
-let ourD3 = document.getElementById("D3");
-let ourD4 = document.getElementById("D4");
-let ourD5 = document.getElementById("D5");
-let ourD6 = document.getElementById("D6");
-let ourD7 = document.getElementById("D7");
-let ourD8 = document.getElementById("D8");
-let ourD9 = document.getElementById("D9");
-let ourD10 = document.getElementById("D10");
-
-let ourE1 = document.getElementById("E1");
-let ourE2 = document.getElementById("E2");
-let ourE3 = document.getElementById("E3");
-let ourE4 = document.getElementById("E4");
-let ourE5 = document.getElementById("E5");
-let ourE6 = document.getElementById("E6");
-let ourE7 = document.getElementById("E7");
-let ourE8 = document.getElementById("E8");
-let ourE9 = document.getElementById("E9");
-let ourE10 = document.getElementById("E10");
-
-let ourF1 = document.getElementById("F1");
-let ourF2 = document.getElementById("F2");
-let ourF3 = document.getElementById("F3");
-let ourF4 = document.getElementById("F4");
-let ourF5 = document.getElementById("F5");
-let ourF6 = document.getElementById("F6");
-let ourF7 = document.getElementById("F7");
-let ourF8 = document.getElementById("F8");
-let ourF9 = document.getElementById("F9");
-let ourF10 = document.getElementById("F10");
-
-let ourG1 = document.getElementById("G1");
-let ourG2 = document.getElementById("G2");
-let ourG3 = document.getElementById("G3");
-let ourG4 = document.getElementById("G4");
-let ourG5 = document.getElementById("G5");
-let ourG6 = document.getElementById("G6");
-let ourG7 = document.getElementById("G7");
-let ourG8 = document.getElementById("G8");
-let ourG9 = document.getElementById("G9");
-let ourG10 = document.getElementById("G10");
-
-let ourH1 = document.getElementById("H1");
-let ourH2 = document.getElementById("H2");
-let ourH3 = document.getElementById("H3");
-let ourH4 = document.getElementById("H4");
-let ourH5 = document.getElementById("H5");
-let ourH6 = document.getElementById("H6");
-let ourH7 = document.getElementById("H7");
-let ourH8 = document.getElementById("H8");
-let ourH9 = document.getElementById("H9");
-let ourH10 = document.getElementById("H10");
-
-let ourI1 = document.getElementById("I1");
-let ourI2 = document.getElementById("I2");
-let ourI3 = document.getElementById("I3");
-let ourI4 = document.getElementById("I4");
-let ourI5 = document.getElementById("I5");
-let ourI6 = document.getElementById("I6");
-let ourI7 = document.getElementById("I7");
-let ourI8 = document.getElementById("I8");
-let ourI9 = document.getElementById("I9");
-let ourI10 = document.getElementById("I10");
-
-let ourJ1 = document.getElementById("J1");
-let ourJ2 = document.getElementById("J2");
-let ourJ3 = document.getElementById("J3");
-let ourJ4 = document.getElementById("J4");
-let ourJ5 = document.getElementById("J5");
-let ourJ6 = document.getElementById("J6");
-let ourJ7 = document.getElementById("J7");
-let ourJ8 = document.getElementById("J8");
-let ourJ9 = document.getElementById("J9");
-let ourJ10 = document.getElementById("J10");
-
-
-
 function checkFriendlyShips(){
+    // Check if the user has lost all of their ships
     let hitCounter=0;
-
     let ourShipList = 
     [
      ourA1, ourA2, ourA3, ourA4, ourA5,
@@ -7645,24 +7576,18 @@ function checkFriendlyShips(){
     for(let spot in ourShipList){
         if(ourShipList[spot].attributes[5]){
             if(ourShipList[spot].attributes[5].value == `hit`){
-                console.log(ourShipList[spot].attributes[5].value)
                 hitCounter=hitCounter+1
         }
     }}
-
     if(hitCounter >=17){
         document.getElementById("message").innerHTML =`You lose!`
         gameOverText = `You lose!`
         endGame()
-
     }
-    console.log(hitCounter)
 }
      
-
-
 function endGame(){
-    // remove click hander on div
+    // remove click hander on all of the divs to effectivly end the game
     gameOver = true
     let enemyShipList = 
     [

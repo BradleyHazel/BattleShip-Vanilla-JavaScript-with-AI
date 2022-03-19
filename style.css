@@ -18,7 +18,7 @@ body{
   display:inline-block;
   font-size: 13px;
   border: none;
-  background-color: #1a51b6; /* Green */
+  background-color: #1a51b6;
 }
   
   .shipBox{
@@ -40,8 +40,14 @@ body{
 text-align: center;
   }
   #startbutton{
+    color: white;
+    padding: 10px 15px;
+    margin-top: 15px;
     text-align: center;
     padding-bottom: 15px;
+    font-size: 13px;
+    border: none;
+    background-color: #1a51b6;
   }
   #gridContainer{
     grid-template-rows: 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px ;
