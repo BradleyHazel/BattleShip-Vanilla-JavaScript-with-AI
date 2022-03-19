@@ -4607,8 +4607,8 @@ function findShipsOnceTheyAreStarted(){
      
             }
             else if(orientation == `horizontal`){
-                twolongship1 = `${shipCenters[shipps].parentNode.id.slice(0,1)}${parseInt(shipCenters[shipps].parentNode.id.slice(1,shipCenters[shipps].parentNode.id.length))+1}`
-                twolongship2 = `${shipCenters[shipps].parentNode.id}`
+                twolongship2 = `${shipCenters[shipps].parentNode.id.slice(0,1)}${parseInt(shipCenters[shipps].parentNode.id.slice(1,shipCenters[shipps].parentNode.id.length))-1}`
+                 twolongship1 = `${shipCenters[shipps].parentNode.id}`
                 
             }
             twolongShipFinalPositions.push(twolongship1)
