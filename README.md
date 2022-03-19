@@ -36,3 +36,5 @@ https://www.w3schools.com/howto/howto_js_typewriter.asp
 Used for AI statistic reference: 
 https://www.datagenetics.com/bloHuntg/december32011/index.html
 https://cliambrown.com/battleship/ 
+
+Images used are from https://opengameart.org/
