@@ -1,6 +1,6 @@
 # BattleShip
 
-https://bradleyhazel.github.io/
+Link to hosted game: https://vanillajs-battlship.herokuapp.com/
 
 A vanilla JavaScript version of BattleShip with 
 a simplified probablity map based AI. The user can drag and 
